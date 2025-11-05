@@ -72,10 +72,10 @@ export const Widget = styled.div`
   align-items: center;
   justify-content: center;
   background-color: #fff;
-  border-radius: 8px;
   width: 100px;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  border-left: 2px solid #e0e0e0;
 `;
+
 export const WidgetContent = styled.div`
   display: flex;
   flex-direction: row;
