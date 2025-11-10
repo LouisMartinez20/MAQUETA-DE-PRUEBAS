@@ -16,7 +16,7 @@ import {
   MdOutlineFileUpload,
   MdMoreVert,
 } from "react-icons/md";
-import { StyledTableWrapper } from "./Table.styles";
+import { StyledTableWrapper } from "./Styles";
 import { useEffect, useState } from "react";
 
 export const TableComponent = () => {

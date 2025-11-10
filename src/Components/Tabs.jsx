@@ -13,7 +13,7 @@ export const TabsGroup = () => {
       label: "Solicitudes de ausencia en trámite",
       icon: {
         appearance: "warning",
-        icon: <MdOutlineReportProblem size={18} />,
+        icon: <MdOutlineReportProblem size={16} />,
       },
     },
   ];

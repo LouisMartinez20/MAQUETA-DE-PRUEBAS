@@ -27,8 +27,7 @@ const WidgetItem = ({ icon, iconAppearance = "primary", value, valueUnit, label 
             icon={icon}
             appearance={iconAppearance}
             size="24px"
-            variant="empty"
-          />
+            variant="empty"/>
         )}
         {value && (
           <Text type="title" size="large" appearance="primary" weight="bold">
@@ -91,14 +90,12 @@ export const Banner = () => {
                   icon={<MdCheckCircle />}
                   appearance="success"
                   size="16px"
-                  variant="empty"
-                />
+                  variant="empty"/>
                 <Text
                   type="label"
                   size="small"
                   appearance="success"
-                  weight="semibold"
-                >
+                  weight="semibold">
                   Vinculado
                 </Text>
               </StatusWrapper>
@@ -110,16 +107,13 @@ export const Banner = () => {
             size="24px"
             variant="outlined"
             shape="rectangle"
-            spacing="narrow"
-          />
+            spacing="narrow"/>
         </BannerContainer>
-
         <WidgetContainer>
           {widgetsData.map((widget, index) => (
             <WidgetItem key={index} {...widget} />
           ))}
         </WidgetContainer>
-
       </Content>
     </Box>
   );
