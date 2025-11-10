@@ -5,7 +5,7 @@ import { TabsGroup } from "./Components/Tabs";
 import { ContainerButton } from "./Components/ContaineButtom";
 import { TableComponent } from "./Components/Table";
 import { Banner } from "./Components/Banner";
-import { Box, Text} from "@inubekit/inubekit";
+import { Box, } from "@inubekit/inubekit";
 import {
   AppContainer,
   HeaderArea,

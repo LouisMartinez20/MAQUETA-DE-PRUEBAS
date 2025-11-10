@@ -22,6 +22,10 @@ export const AppContainer = styled.div`
   height: 100vh;
   margin: 0 auto;
   z-index: 1;
+
+  @media (max-width: 1440px) {
+    width: 100%;
+  }
 `;
 export const HeaderArea = styled.header`
   flex-shrink: 0;
