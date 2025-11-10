@@ -1,20 +1,19 @@
 import { Sidebar } from "./Components/Sidebar";
 import { HeaderApp } from "./Components/HeaderApp";
-import { HGroup } from "./Components/Hgroup";
-import { TabsGroup } from "./Components/Tabs";
-import { ContainerButton } from "./Components/ContaineButtom";
-import { TableComponent } from "./Components/Table";
 import { Banner } from "./Components/Banner";
-import { Box, } from "@inubekit/inubekit";
+import { Box } from "@inubekit/inubekit";
+import { Routes, Route, Navigate } from "react-router-dom";
+import { AbsencesListPage } from "./pages/AbsencesListPage";
+import { ReportAbsencePage } from "./pages/ReportAbsencePage";
 import {
   AppContainer,
   HeaderArea,
   ContentArea,
   BodyArea,
   InnerContent,
-  TableContainer,
   Content,
 } from "./App.styles";
+
 export const App = () => {
   return (
     <Content>
@@ -26,20 +25,78 @@ export const App = () => {
           <Sidebar />
           <BodyArea>
             <InnerContent>
-              <Banner />
-              <HGroup />
-              <TabsGroup />
-              <Box borderRadius="8px" margin="0px" padding="16px">
-                <TableContainer>
-                  <ContainerButton />
-                  <TableComponent />
-                </TableContainer>
-              </Box>
+              <Routes>
+                <Route
+                  path="/"
+                  element={<Navigate to="/ausencias" replace />}
+                />
+                <Route path="/ausencias" element={<AbsencesListPage />} />
+                <Route
+                  path="/ausencias/reportar"
+                  element={<ReportAbsencePage />}
+                />
+                {/* Rutas placeholder para otros módulos */}
+                <Route
+                  path="/vacaciones"
+                  element={
+                    <Box>
+                      <Banner />
+                      <h2>Vacaciones - En desarrollo</h2>
+                    </Box>
+                  }
+                />
+                <Route
+                  path="/incapacidades"
+                  element={
+                    <Box>
+                      <Banner />
+                      <h2>Incapacidades - En desarrollo</h2>
+                    </Box>
+                  }
+                />
+                <Route
+                  path="/certificaciones"
+                  element={
+                    <Box>
+                      <Banner />
+                      <h2>Certificaciones - En desarrollo</h2>
+                    </Box>
+                  }
+                />
+                <Route
+                  path="/contratos"
+                  element={
+                    <Box>
+                      <Banner />
+                      <h2>Contratos - En desarrollo</h2>
+                    </Box>
+                  }
+                />
+                <Route
+                  path="/cargos"
+                  element={
+                    <Box>
+                      <Banner />
+                      <h2>Cargos - En desarrollo</h2>
+                    </Box>
+                  }
+                />
+                <Route
+                  path="/solicitudes"
+                  element={
+                    <Box>
+                      <Banner />
+                      <h2>Solicitudes - En desarrollo</h2>
+                    </Box>
+                  }
+                />
+              </Routes>
             </InnerContent>
           </BodyArea>
         </ContentArea>
       </AppContainer>
-      </Content>
+    </Content>
   );
 };
+
 export default App;
