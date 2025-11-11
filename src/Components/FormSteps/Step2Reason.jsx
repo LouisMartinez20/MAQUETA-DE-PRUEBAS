@@ -1,6 +1,5 @@
 import { Grid, Select, Textarea } from "@inubekit/inubekit";
 import { StepContainer } from "./Steps.styles";
-
 export const Step2Reason = ({ formData, onChange }) => {
     const motivoOptions = [
         { id: "1", label: "Vacaciones", value: "vacaciones" },
@@ -11,7 +10,6 @@ export const Step2Reason = ({ formData, onChange }) => {
         { id: "6", label: "Calamidad doméstica", value: "calamidad" },
         { id: "7", label: "Otro", value: "otro" },
     ];
-
     const submotivoOptions = [
         { id: "1", label: "Enfermedad general", value: "enfermedad_general" },
         { id: "2", label: "Accidente laboral", value: "accidente_laboral" },
@@ -20,15 +18,11 @@ export const Step2Reason = ({ formData, onChange }) => {
         { id: "5", label: "Trámite personal", value: "tramite_personal" },
         { id: "6", label: "Otro", value: "otro" },
     ];
-
     const handleSelectChange = (name, value) => {
         onChange({ target: { name, value } });
     };
-
     return (
         <StepContainer>
-
-
             <Grid templateColumns="1fr 1fr" gap="16px" autoRows="auto">
                 <Select
                     label="Motivo"
@@ -39,10 +33,9 @@ export const Step2Reason = ({ formData, onChange }) => {
                     options={motivoOptions}
                     value={formData?.motivo || ""}
                     onChange={(name, value) => handleSelectChange(name, value)}
-                    
+                    clearable={false}
                     fullwidth
                 />
-
                 <Select
                     label="Submotivo"
                     placeholder="Seleccione de la lista"
@@ -52,11 +45,10 @@ export const Step2Reason = ({ formData, onChange }) => {
                     options={submotivoOptions}
                     value={formData?.submotivo || ""}
                     onChange={(name, value) => handleSelectChange(name, value)}
-                    
+                    clearable={false}
                     fullwidth
                 />
             </Grid>
-
             <Grid templateColumns="1fr" gap="16px" margin="16px 0px 0px 0px">
                 <Textarea
                     label="Detalles del motivo"

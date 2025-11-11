@@ -11,73 +11,74 @@ import {
 import { MdAttachFile } from "react-icons/md";
 
 export const Step4Documents = () => {
-    // Datos de los documentos
     const data = [
-        { documento: "Cita medica programada - (Opcional)" },
         {
-            documento:
-                "Incapacidad medica emitida por una EPS o prepagada - *Requerido*",
+            id: "cita_medica_programada",
+            documento: "Cita médica programada - (Opcional)",
         },
         {
+            id: "incapacidad_medica_eps",
             documento:
-                "Orden medica de tratamiento, examen especializado o recuperación post-operatoria  - (Opcional)",
+                "Incapacidad médica emitida por una EPS o prepagada - *Requerido*",
+        },
+        {
+            id: "orden_medica_tratamiento",
+            documento:
+                "Orden médica de tratamiento, examen especializado o recuperación post-operatoria - (Opcional)",
         },
     ];
 
     return (
-        <>
-            <Table
-                tableLayout="fixed"
-                borderCollapse="collapse"
-                borderWidth="1px"
-                borderStyle="solid"
-            >
-                <Thead>
-                    <Tr>
-                        <Th align="center">
-                            <Text
-                                as="span"
-                                type="title"
-                                size="medium"
-                                appearance="dark"
-                                weight="bold"
-                            >
-                                Documento solicitado
-                            </Text>
-                        </Th>
-                        <Th align="center" action="true" width="80px">
-                            <Text
-                                as="span"
-                                type="title"
-                                size="medium"
-                                appearance="dark"
-                                weight="bold"
-                            >
-                                Adjuntar
-                            </Text>
-                        </Th>
-                    </Tr>
-                </Thead>
+        <Table
+            tableLayout="fixed"
+            borderCollapse="collapse"
+            borderWidth="1px"
+            borderStyle="solid"
+        >
+            <Thead>
+                <Tr>
+                    <Th align="center">
+                        <Text
+                            as="span"
+                            type="title"
+                            size="medium"
+                            appearance="dark"
+                            weight="bold"
+                        >
+                            Documento solicitado
+                        </Text>
+                    </Th>
+                    <Th align="center" width="80px">
+                        <Text
+                            as="span"
+                            type="title"
+                            size="medium"
+                            appearance="dark"
+                            weight="bold"
+                        >
+                            Adjuntar
+                        </Text>
+                    </Th>
+                </Tr>
+            </Thead>
 
-                <Tbody>
-                    {data.map((item, index) => (
-                        <Tr key={index}>
-                            <Td align="left" appearance="light" type="text">
-                                {item.documento}
-                            </Td>
-                            <Td align="center" appearance="light" type="text">
-                                <Icon
-                                    icon={<MdAttachFile />}
-                                    appearance="primary"
-                                    size="20px"
-                                    spacing="narrow"
-                                    cursorHover={true}
-                                />
-                            </Td>
-                        </Tr>
-                    ))}
-                </Tbody>
-            </Table>
-        </>
+            <Tbody>
+                {data.map((item) => (
+                    <Tr key={item.id}>
+                        <Td align="left" appearance="light" type="text">
+                            {item.documento}
+                        </Td>
+                        <Td align="center" appearance="light" type="text">
+                            <Icon
+                                icon={<MdAttachFile />}
+                                appearance="primary"
+                                size="20px"
+                                spacing="narrow"
+                            />
+                        </Td>
+                    </Tr>
+                ))}
+            </Tbody>
+        </Table>
     );
 };
