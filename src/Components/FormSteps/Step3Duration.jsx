@@ -1,5 +1,6 @@
 import { Grid, Textfield, Select } from "@inubekit/inubekit";
-import { StepContainer } from "./Steps.styles";
+import { StepContainer, Step2Grid } from "./Steps.styles";
+
 export const Step3Duration = ({ formData, onChange }) => {
     const horaInicioOptions = [
         { id: "1", label: "00:00", value: "00:00" },
@@ -27,9 +28,11 @@ export const Step3Duration = ({ formData, onChange }) => {
         { id: "23", label: "22:00", value: "22:00" },
         { id: "24", label: "23:00", value: "23:00" },
     ];
+
     const handleSelectChange = (name, value) => {
         onChange({ target: { name, value } });
     };
+
     return (
         <StepContainer>
             <Grid templateColumns="1fr" gap="16px" margin="0px 0px 16px 0px">
@@ -42,9 +45,11 @@ export const Step3Duration = ({ formData, onChange }) => {
                     size="compact"
                     value={formData?.fechaInicio || ""}
                     onChange={onChange}
-                    fullwidth/>
+                    fullwidth
+                />
             </Grid>
-            <Grid templateColumns="1fr 1fr" gap="16px" margin="0px 0px 16px 0px">
+
+            <Step2Grid style={{ marginBottom: "16px" }}>
                 <Textfield
                     label="Duración en días"
                     placeholder="Ej: 2"
@@ -54,7 +59,8 @@ export const Step3Duration = ({ formData, onChange }) => {
                     size="compact"
                     value={formData?.duracionDias || ""}
                     onChange={onChange}
-                    fullwidth/>
+                    fullwidth
+                />
                 <Textfield
                     label="Duración en horas"
                     placeholder="Ej: 8"
@@ -64,8 +70,10 @@ export const Step3Duration = ({ formData, onChange }) => {
                     size="compact"
                     value={formData?.duracionHoras || ""}
                     onChange={onChange}
-                    fullwidth/>
-            </Grid>
+                    fullwidth
+                />
+            </Step2Grid>
+
             <Grid templateColumns="1fr" gap="16px">
                 <Select
                     label="Hora de inicio aproximada"
@@ -77,7 +85,8 @@ export const Step3Duration = ({ formData, onChange }) => {
                     value={formData?.horaInicio || ""}
                     onChange={(name, value) => handleSelectChange(name, value)}
                     clearable={false}
-                    fullwidth/>
+                    fullwidth
+                />
             </Grid>
         </StepContainer>
     );

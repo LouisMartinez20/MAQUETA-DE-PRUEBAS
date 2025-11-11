@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { Assisted } from "@inubekit/inubekit";
 
+
 export const AssistedComponent = ({
   onSubmitClick,
   validateStep,

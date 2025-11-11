@@ -2,7 +2,7 @@ import { Nav } from "@inubekit/inubekit";
 import { MdLogout } from "react-icons/md";
 import { useLocation, useNavigate } from "react-router-dom";
 import { SidebarContainer } from "./Styles";
-import inubeLogo from "/inube_logo.png";
+import inubeLogo from "/Logo_crediboard.svg";
 import { SIDEBAR_LINKS } from "../navigation/navigationConfig";
 export const Sidebar = () => {
   const location = useLocation();

@@ -154,6 +154,7 @@ useEffect(() => {
                   variant={isMobile ? "filled" : "empty"}
                   shape={isMobile ? "circle" : undefined}
                   spacing={isMobile ? "none" : undefined}
+                  cursorHover={true}
                 />
               </Td>
               <Td align="center" type="icon">
@@ -162,6 +163,7 @@ useEffect(() => {
                   appearance="primary"
                   size="20px"
                   variant="empty"
+                  cursorHover={true}
                 />
               </Td>
             </Tr>
