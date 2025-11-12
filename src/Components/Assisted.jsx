@@ -65,7 +65,7 @@ export const AssistedComponent = ({
       disableSubmit={!isStepValid}
       showCurrentStepNumber
       controls={{
-        goBackText: "Regresar",
+        goBackText: "Anterior",
         goNextText: "Siguiente",
         submitText: "Enviar",
       }}

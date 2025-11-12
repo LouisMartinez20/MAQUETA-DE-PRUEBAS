@@ -19,7 +19,6 @@ export const Step2Grid = styled.div`
   }
 `;
 
-/* Caja de sección con borde y fondo */
 export const SectionBox = styled.div`
   border: 1px solid ${inube.palette.neutral.N40};
   border-radius: 8px;
@@ -27,7 +26,6 @@ export const SectionBox = styled.div`
   background-color: ${inube.palette.neutral.N10};
 `;
 
-/* Contenedor del botón "Regresar a este paso" (sin borde, alineado a la derecha) */
 export const BackActionContainer = styled.div`
   display: flex;
   justify-content: flex-end;

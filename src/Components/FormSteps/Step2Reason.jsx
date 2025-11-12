@@ -7,11 +7,7 @@ export const Step2Reason = ({ formData, onChange }) => {
     { id: "2", label: "Incapacidad médica", value: "incapacidad" },
     { id: "3", label: "Permiso personal", value: "permiso_personal" },
     { id: "4", label: "Permiso por estudio", value: "permiso_estudio" },
-    {
-      id: "5",
-      label: "Licencia de maternidad/paternidad",
-      value: "licencia_maternidad",
-    },
+    {id: "5",label: "Licencia de maternidad/paternidad",value: "licencia_maternidad",},
     { id: "6", label: "Calamidad doméstica", value: "calamidad" },
     { id: "7", label: "Otro", value: "otro" },
   ];
@@ -31,7 +27,6 @@ export const Step2Reason = ({ formData, onChange }) => {
 
   return (
     <StepContainer>
-      {/* ✅ Grid responsivo */}
       <Step2Grid>
         <Select
           label="Motivo"

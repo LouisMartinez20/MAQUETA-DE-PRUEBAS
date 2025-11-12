@@ -14,7 +14,6 @@ import { ROUTES } from "../routes";
 export const ReportAbsencePage = () => {
   const navigate = useNavigate();
   const [currentStep, setCurrentStep] = useState(1);
-  const [uploadedFiles, setUploadedFiles] = useState([]);
   const [formData, setFormData] = useState({
     motivo: "",
     submotivo: "",
@@ -24,6 +23,7 @@ export const ReportAbsencePage = () => {
     duracionHoras: "",
     horaInicio: "",
   });
+  const [documents, setDocuments] = useState({});
 
   const breadcrumbs = [
     { id: "inicio", label: "Inicio", path: ROUTES.HOME },
@@ -44,13 +44,6 @@ export const ReportAbsencePage = () => {
     }));
   };
 
-  const handleFileChange = (e) => {
-    const { name } = e.target;
-    if (e.target.files && e.target.files.length > 0) {
-      setUploadedFiles((prev) => [...prev, name]);
-    }
-  };
-
   const isStepValid = (step) => {
     switch (step) {
       case 1:
@@ -62,7 +55,7 @@ export const ReportAbsencePage = () => {
           formData.fechaInicio && formData.duracionDias && formData.horaInicio
         );
       case 4:
-        return true; // ya no obligatorio
+        return true;
       case 5:
         return true;
       default:
@@ -72,7 +65,7 @@ export const ReportAbsencePage = () => {
 
   const handleSubmit = () => {
     console.log("Datos del formulario:", formData);
-    console.log("Archivos cargados:", uploadedFiles);
+    console.log("Documentos adjuntos:", documents);
     alert("¡Solicitud de ausencia enviada correctamente!");
     navigate(ROUTES.AUSENCIAS.LIST);
   };
@@ -113,14 +106,10 @@ export const ReportAbsencePage = () => {
         return <Step3Duration {...commonProps} />;
       case 4:
         return (
-          <Step4Documents
-            {...commonProps}
-            onChange={handleFileChange}
-            uploadedFiles={uploadedFiles}
-          />
+          <Step4Documents documents={documents} setDocuments={setDocuments} />
         );
       case 5:
-        return <Step5Verification formData={formData} />;
+        return <Step5Verification formData={formData} documents={documents} />;
       default:
         return null;
     }

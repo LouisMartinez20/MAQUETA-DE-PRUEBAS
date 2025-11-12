@@ -1,6 +1,5 @@
 import {
   Stack,
-  Grid,
   Text,
   Button,
   Textfield,
@@ -9,7 +8,12 @@ import {
   Icon,
 } from "@inubekit/inubekit";
 import { MdArrowBack } from "react-icons/md";
-import { StepContainer, SectionBox, BackActionContainer, Step2Grid } from "./Steps.styles";
+import {
+  StepContainer,
+  SectionBox,
+  BackActionContainer,
+  Step2Grid,
+} from "./Steps.styles";
 
 const BackAction = () => (
   <BackActionContainer>
@@ -44,7 +48,34 @@ const SectionCard = ({ title, children }) => (
 );
 
 /* Paso 5 visual */
-export const Step5Verification = ({ formData }) => {
+export const Step5Verification = ({ formData, documents }) => {
+  const docFields = [
+    {
+      id: "cita_medica_programada",
+      label: "Cita médica programada - (Opcional)",
+    },
+    {
+      id: "incapacidad_medica_eps",
+      label: "Incapacidad médica emitida por una EPS o prepagada - *Requerido*",
+    },
+    {
+      id: "orden_medica_tratamiento",
+      label:
+        "Orden médica de tratamiento, examen especializado o recuperación post-operatoria - (Opcional)",
+    },
+  ];
+
+  const counts = docFields.map((f) => ({
+    label: f.label,
+    count: documents?.[f.id]?.files?.length ?? 0,
+  }));
+
+  const formatCount = (count) => {
+    if (!count || count === 0) return "No adjunto";
+    if (count === 1) return "1 archivo adjunto";
+    return `${count} archivos adjuntos`;
+  };
+
   return (
     <StepContainer>
       <Stack direction="column" gap="24px">
@@ -130,9 +161,33 @@ export const Step5Verification = ({ formData }) => {
         </SectionCard>
 
         <SectionCard title="Documentos adjuntos">
-          <Text type="body" size="medium" appearance="gray">
-            No se adjuntaron documentos.
-          </Text>
+          <Step2Grid>
+            <Textfield
+              label={counts[0].label}
+              id={`doc-count-0`}
+              size="compact"
+              value={formatCount(counts[0].count)}
+              disabled
+              fullwidth
+            />
+            <Textfield
+              label={counts[1].label}
+              id={`doc-count-1`}
+              size="compact"
+              value={formatCount(counts[1].count)}
+              disabled
+              fullwidth
+            />
+          </Step2Grid>
+
+          <Textfield
+            label={counts[2].label}
+            id={`doc-count-2`}
+            size="compact"
+            value={formatCount(counts[2].count)}
+            disabled
+            fullwidth
+          />
         </SectionCard>
       </Stack>
     </StepContainer>
