@@ -9,6 +9,33 @@ export const AssistedComponent = ({
   children,
 }) => {
   const [currentStep, setCurrentStep] = useState(1);
+  const [isMobile, setIsMobile] = useState(() => {
+    if (typeof window === "undefined") return false;
+    return window.matchMedia("(max-width: 768px)").matches;
+  });
+
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+
+    const mql = window.matchMedia("(max-width: 768px)");
+    const handler = (e) => {
+      setIsMobile(e.matches);
+    };
+
+    if (mql.addEventListener) {
+      mql.addEventListener("change", handler);
+    } else {
+      mql.addListener(handler);
+    }
+
+    return () => {
+      if (mql.removeEventListener) {
+        mql.removeEventListener("change", handler);
+      } else {
+        mql.removeListener(handler);
+      }
+    };
+  }, []);
 
   const steps = [
     {
@@ -69,7 +96,7 @@ export const AssistedComponent = ({
         goNextText: "Siguiente",
         submitText: "Enviar",
       }}
-      size="large"
+      size={isMobile ? "small" : "large"}
     >
       {children}
     </Assisted>

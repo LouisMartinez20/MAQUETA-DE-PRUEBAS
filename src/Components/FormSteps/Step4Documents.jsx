@@ -73,7 +73,7 @@ export const Step4Documents = ({ documents, setDocuments }) => {
                 Documento solicitado
               </Text>
             </Th>
-            <Th align="center" width="80px">
+            <Th align="center" width="80px" action ="true"  >
               <Text
                 as="span"
                 type="title"

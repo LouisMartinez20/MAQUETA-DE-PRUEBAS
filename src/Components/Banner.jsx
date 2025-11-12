@@ -3,7 +3,7 @@ import {
   MdCheckCircle,
   MdCached,
   MdOutlineBeachAccess,
-  MdOutlinePerson,
+  MdOutlinePersonOff,
   MdNotificationsNone,
 } from "react-icons/md";
 import {
@@ -63,9 +63,9 @@ export const Banner = () => {
       label: "Alertas(0)",
     },
     {
-      icon: <MdOutlinePerson />,
-      iconAppearance: "primary",
-      label: "Presente",
+      icon: <MdOutlinePersonOff />,
+      iconAppearance: "danger",
+      label: "Ausente",
     },
     {
       value: "2",

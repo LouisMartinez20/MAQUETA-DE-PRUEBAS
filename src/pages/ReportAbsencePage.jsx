@@ -7,9 +7,11 @@ import { Step2Reason } from "../Components/FormSteps/Step2Reason";
 import { Step3Duration } from "../Components/FormSteps/Step3Duration";
 import { Step4Documents } from "../Components/FormSteps/Step4Documents";
 import { Step5Verification } from "../Components/FormSteps/Step5Verification";
-import { Box, Button, Stack } from "@inubekit/inubekit";
+import { Box, Button, Stack, Icon, Text } from "@inubekit/inubekit";
+import { MdOutlineRule } from "react-icons/md";
 import { useNavigate } from "react-router-dom";
 import { ROUTES } from "../routes";
+import { Step5SuccessModal } from "../Components/Modales/Step5SuccessModal";
 
 export const ReportAbsencePage = () => {
   const navigate = useNavigate();
@@ -24,6 +26,7 @@ export const ReportAbsencePage = () => {
     horaInicio: "",
   });
   const [documents, setDocuments] = useState({});
+  const [isSuccessOpen, setIsSuccessOpen] = useState(false);
 
   const breadcrumbs = [
     { id: "inicio", label: "Inicio", path: ROUTES.HOME },
@@ -55,7 +58,9 @@ export const ReportAbsencePage = () => {
           formData.fechaInicio && formData.duracionDias && formData.horaInicio
         );
       case 4:
-        return true;
+        const requiredDoc = documents?.incapacidad_medica_eps;
+        const requiredCount = requiredDoc?.files?.length || 0;
+        return requiredCount > 0;
       case 5:
         return true;
       default:
@@ -66,7 +71,11 @@ export const ReportAbsencePage = () => {
   const handleSubmit = () => {
     console.log("Datos del formulario:", formData);
     console.log("Documentos adjuntos:", documents);
-    alert("¡Solicitud de ausencia enviada correctamente!");
+    setIsSuccessOpen(true);
+  };
+
+  const handleFinishSuccess = () => {
+    setIsSuccessOpen(false);
     navigate(ROUTES.AUSENCIAS.LIST);
   };
 
@@ -118,13 +127,24 @@ export const ReportAbsencePage = () => {
   return (
     <>
       <Banner />
-      <HGroup
-        breadcrumbs={breadcrumbs}
-        title="Reportar ausencia"
-        description="Complete el formulario para reportar una nueva ausencia."
-        showBackButton={true}
-        onBack={handleCancel}
-      />
+      <Stack direction="row" justifyContent="space-between" alignItems="center" margin="0 0 16px 0">
+        <HGroup
+          breadcrumbs={breadcrumbs}
+          title="Reportar ausencia"
+          description="Complete el formulario para reportar una nueva ausencia."
+          showBackButton={true}
+          onBack={handleCancel}
+        />
+
+        <Button variant="outlined" appearance="gray" spacing="compact">
+          <Stack direction="row" alignItems="center" gap="8px">
+            <Icon icon={<MdOutlineRule />} appearance="dark" size="18px" spacing="narrow" />
+            <Text type="label" size="medium" appearance="dark" weight="bold">
+              Requisitos
+            </Text>
+          </Stack>
+        </Button>
+      </Stack>
 
       <AssistedComponent
         onSubmitClick={handleSubmit}
@@ -180,6 +200,13 @@ export const ReportAbsencePage = () => {
           )}
         </Stack>
       </Stack>
+
+      {isSuccessOpen && (
+        <Step5SuccessModal
+          isOpen={isSuccessOpen}
+          onFinish={handleFinishSuccess}
+        />
+      )}
     </>
   );
 };
