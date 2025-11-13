@@ -1,5 +1,5 @@
 import { Blanket, Stack, Text, Icon, Button } from "@inubekit/inubekit";
-import { MdCheckCircle, MdClose } from "react-icons/md";
+import { MdCheckCircle,  } from "react-icons/md";
 import { ModalContainer, ModalHeader } from "./Step5SuccessModal.styles";
 
 export const Step5SuccessModal = ({ isOpen, onFinish }) => {

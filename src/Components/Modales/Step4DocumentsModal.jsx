@@ -15,7 +15,6 @@ import {
     FileTextInfo,
     FileActions,
 } from "./Step4DocumentsModal.styles";
-
 export const Step4DocumentsModal = ({
     isOpen,
     onClose,
@@ -24,9 +23,7 @@ export const Step4DocumentsModal = ({
 }) => {
     const [uploadedFiles, setUploadedFiles] = useState(existingFiles);
     const fileInputRef = useRef(null);
-
     if (!isOpen) return null;
-
     const handleFileSelect = (event) => {
         const file = event.target.files?.[0];
         if (file && uploadedFiles.length < 3) {
@@ -42,19 +39,17 @@ export const Step4DocumentsModal = ({
         }
         event.target.value = "";
     };
-
     const handleDeleteFile = (fileId) => {
         setUploadedFiles((prev) => prev.filter((file) => file.id !== fileId));
     };
-
     const handleViewFile = (file) => {
-        console.log("Ver archivo:", file.name);
+        const url = URL.createObjectURL(file.file);
+        window.open(url, "_blank");
     };
 
     const handleButtonClick = () => {
         fileInputRef.current?.click();
     };
-
     return (
         <>
             <Blanket reactPortalId="modal-root" />
@@ -77,7 +72,6 @@ export const Step4DocumentsModal = ({
                         />
                     </Stack>
                 </ModalHeader>
-
                 <Stack direction="column" gap="24px">
                     <UploadArea>
                         <Stack direction="column" alignItems="center" gap="16px">
@@ -98,7 +92,6 @@ export const Step4DocumentsModal = ({
                             </Button>
                         </Stack>
                     </UploadArea>
-
                     <input
                         ref={fileInputRef}
                         type="file"
@@ -106,11 +99,9 @@ export const Step4DocumentsModal = ({
                         onChange={handleFileSelect}
                         style={{ display: "none" }}
                     />
-
                     <Text type="title" size="medium" appearance="dark" weight="bold">
                         Archivos adjuntos
                     </Text>
-
                     {uploadedFiles.length > 0 ? (
                         <Stack direction="row" gap="12px" wrap="wrap">
                             {uploadedFiles.map((file) => (
@@ -163,7 +154,6 @@ export const Step4DocumentsModal = ({
                             No hay archivos adjuntos
                         </Text>
                     )}
-
                     <Stack direction="row" justifyContent="flex-end" gap="16px">
                         <Button
                             variant="outlined"

@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useCallback } from "react";
 import {
   Table,
   Thead,
@@ -12,31 +12,31 @@ import {
 import { MdAttachFile } from "react-icons/md";
 import { Step4DocumentsModal } from "../Modales/Step4DocumentsModal";
 
+export const DOCUMENTS_DATA = [
+  {
+    id: "cita_medica_programada",
+    documento: "Cita médica programada - (Opcional)",
+  },
+  {
+    id: "incapacidad_medica_eps",
+    documento:
+      "Incapacidad médica emitida por una EPS o prepagada - *Requerido*",
+  },
+  {
+    id: "orden_medica_tratamiento",
+    documento:
+      "Orden médica de tratamiento, examen especializado o recuperación post-operatoria - (Opcional)",
+  },
+];
+
 export const Step4Documents = ({ documents, setDocuments }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedDocument, setSelectedDocument] = useState(null);
 
-  const data = [
-    {
-      id: "cita_medica_programada",
-      documento: "Cita médica programada - (Opcional)",
-    },
-    {
-      id: "incapacidad_medica_eps",
-      documento:
-        "Incapacidad médica emitida por una EPS o prepagada - *Requerido*",
-    },
-    {
-      id: "orden_medica_tratamiento",
-      documento:
-        "Orden médica de tratamiento, examen especializado o recuperación post-operatoria - (Opcional)",
-    },
-  ];
-
-  const handleAttachClick = (document) => {
+  const handleAttachClick = useCallback((document) => {
     setSelectedDocument(document);
     setIsModalOpen(true);
-  };
+  }, []);
 
   const handleCloseModal = (uploadedFiles) => {
     if (uploadedFiles && uploadedFiles.length > 0) {
@@ -73,7 +73,7 @@ export const Step4Documents = ({ documents, setDocuments }) => {
                 Documento solicitado
               </Text>
             </Th>
-            <Th align="center" width="80px" action ="true"  >
+            <Th align="center" width="80px" action="true">
               <Text
                 as="span"
                 type="title"
@@ -88,7 +88,7 @@ export const Step4Documents = ({ documents, setDocuments }) => {
         </Thead>
 
         <Tbody>
-          {data.map((item) => (
+          {DOCUMENTS_DATA.map((item) => (
             <Tr key={item.id}>
               <Td align="left" appearance="light" type="text">
                 {item.documento}
