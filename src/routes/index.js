@@ -1,8 +1,7 @@
 /**
- * ÍNDICE DE RUTAS DE LA APLICACIÓN
- *
- * Este archivo documenta todas las rutas disponibles en la aplicación.
- * Las rutas están configuradas en routes/routes.jsx
+  ÍNDICE DE RUTAS DE LA APLICACIÓN
+  Este archivo documenta todas las rutas disponibles en la aplicación.
+  Las rutas están configuradas en routes/routes.jsx
  */
 
 export const ROUTES = {
@@ -25,13 +24,8 @@ export const ROUTES = {
 };
 
 /**
- * Función helper para obtener rutas con parámetros
- * Ejemplo: getRoute(ROUTES.AUSENCIAS.DETAIL, { id: 123 })
+  Función helper para obtener rutas con parámetros
+  Ejemplo: getRoute(ROUTES.AUSENCIAS.DETAIL, { id: 123 })
  */
-export const getRoute = (route, params = {}) => {
-  let finalRoute = route;
-  Object.keys(params).forEach((key) => {
-    finalRoute = finalRoute.replace(`:${key}`, params[key]);
-  });
-  return finalRoute;
-};
+
+

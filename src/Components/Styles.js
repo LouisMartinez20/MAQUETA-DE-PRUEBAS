@@ -27,7 +27,6 @@ export const SidebarContainer = styled.div`
 export const HGroupContainer = styled.div`
   display: flex;
   flex-direction: column;
-  margin-bottom: 1.5rem;
 `;
 
 export const TitleRow = styled.div`
@@ -174,7 +173,7 @@ export const StyledTableWrapper = styled.div`
     }
 
     thead th:nth-child(4) {
-      width: 140px !important;
+      width: 70px ;
       text-align: center;
     }
 

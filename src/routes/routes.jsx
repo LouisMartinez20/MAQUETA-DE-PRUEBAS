@@ -5,10 +5,10 @@ import { PlaceholderPage } from "../pages/PlaceholderPage";
 import { ROUTES } from "./index";
 
 /**
- * Configuración de rutas de la aplicación
- * Cada ruta contiene:
- * - path: URL de la ruta
- * - element: Componente a renderizar
+  Configuración de rutas de la aplicación
+  Cada ruta contiene:
+  - path: URL de la ruta
+  - element: Componente a renderizar
  */
 export const routes = [
   {

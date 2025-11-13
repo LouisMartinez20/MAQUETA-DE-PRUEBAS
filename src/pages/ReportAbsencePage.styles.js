@@ -10,3 +10,10 @@ export const FormContainer = styled.div`
     padding: 0;
   }
 `;
+//absence list page  styles
+export const TableContainer = styled.section`
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  background-color: #ffffff;
+`;

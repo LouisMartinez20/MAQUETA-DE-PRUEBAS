@@ -3,6 +3,7 @@ export const Content = styled.div`
   position: relative;
   width: 100%;
   height: 100%;
+  
   &::before {
     content: "";
     position: absolute;
@@ -21,36 +22,31 @@ export const AppContainer = styled.div`
   width: 1440px;
   height: 100vh;
   margin: 0 auto;
-  z-index: 1;
+  background-color: #ffffff;
+
 
   @media (max-width: 1440px) {
     width: 100%;
   }
 `;
-export const HeaderArea = styled.header`
-  flex-shrink: 0;
-`;
+
 export const ContentArea = styled.div`
   display: flex;
   flex: 1;
-  background-color: #ffffff;
 `;
 export const BodyArea = styled.main`
   flex: 1;
   display: flex;
   flex-direction: column;
-  padding: 1.5rem;
+  padding: 4rem;
   overflow-y: auto;
+
+  @media (max-width: 768px) {
+    padding: 1rem;
 `;
 export const InnerContent = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 1rem;
-  background-color: #ffffff;
-`;
-export const TableContainer = styled.section`
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
+  gap: 2rem;
   background-color: #ffffff;
 `;

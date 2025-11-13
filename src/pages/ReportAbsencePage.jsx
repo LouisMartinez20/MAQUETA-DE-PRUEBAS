@@ -15,8 +15,8 @@ import { Step5SuccessModal } from "../Components/Modales/Step5SuccessModal";
 
 export const ReportAbsencePage = () => {
   const navigate = useNavigate();
-  const [currentStep, setCurrentStep] = useState(1);
-  const [formData, setFormData] = useState({
+  const [currentStep, setCurrentStep] = useState(1); // controla el paso actual del formulario desde los botones
+  const [formData, setFormData] = useState({ //controla los datos del formulario
     motivo: "",
     submotivo: "",
     detallesMotivo: "",
@@ -25,8 +25,8 @@ export const ReportAbsencePage = () => {
     duracionHoras: "",
     horaInicio: "",
   });
-  const [documents, setDocuments] = useState({});
-  const [isSuccessOpen, setIsSuccessOpen] = useState(false);
+  const [documents, setDocuments] = useState({}); // controla los documentos adjuntos
+  const [isSuccessOpen, setIsSuccessOpen] = useState(false); // controla la visibilidad del modal de éxito
 
   const breadcrumbs = [
     { id: "inicio", label: "Inicio", path: ROUTES.HOME },
@@ -46,6 +46,8 @@ export const ReportAbsencePage = () => {
       [name]: value,
     }));
   };
+  
+
 
   const isStepValid = (step) => {
     switch (step) {
@@ -127,7 +129,12 @@ export const ReportAbsencePage = () => {
   return (
     <>
       <Banner />
-      <Stack direction="row" justifyContent="space-between" alignItems="center" margin="0 0 16px 0">
+      <Stack
+        direction="row"
+        justifyContent="space-between"
+        alignItems="center"
+        margin="0 0 16px 0"
+      >
         <HGroup
           breadcrumbs={breadcrumbs}
           title="Reportar ausencia"
@@ -138,7 +145,12 @@ export const ReportAbsencePage = () => {
 
         <Button variant="outlined" appearance="gray" spacing="compact">
           <Stack direction="row" alignItems="center" gap="8px">
-            <Icon icon={<MdOutlineRule />} appearance="dark" size="18px" spacing="narrow" />
+            <Icon
+              icon={<MdOutlineRule />}
+              appearance="dark"
+              size="18px"
+              spacing="narrow"
+            />
             <Text type="label" size="medium" appearance="dark" weight="bold">
               Requisitos
             </Text>
