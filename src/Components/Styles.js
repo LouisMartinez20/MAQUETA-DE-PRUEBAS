@@ -11,9 +11,7 @@ export const SidebarContainer = styled.div`
   background-color: #ffffff;
   border-right: 1px solid #e0e0e0;
 
-  img[src*="inube_logo"] {
-    width: 160px;
-  }
+  
 
   @media (max-width: 1024px) {
     display: none;

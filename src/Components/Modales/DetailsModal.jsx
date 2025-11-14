@@ -24,7 +24,7 @@ export const DetailsModal = ({ isOpen, onClose, absence, requirements = mockRequ
   if (!isOpen) return null;
   return (
     <>
-      <Blanket reactPortalId="modal-root" />
+      <Blanket reactPortalId="modal-root" >
       <ModalContainer>
         <ModalHeader>
           <Text type="title" size="large" appearance="dark" weight="bold">
@@ -100,6 +100,7 @@ export const DetailsModal = ({ isOpen, onClose, absence, requirements = mockRequ
           </Stack>
         </Stack>
       </ModalContainer>
+      </Blanket>
     </>
   );
 };

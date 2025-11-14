@@ -7,7 +7,7 @@ export const Step5SuccessModal = ({ isOpen, onFinish }) => {
 
   return (
     <>
-      <Blanket reactPortalId="modal-root" />
+      <Blanket reactPortalId="modal-root" >
       <ModalContainer>
         <Stack direction="column" gap="24px" alignItems="center">
           <Icon
@@ -34,6 +34,7 @@ export const Step5SuccessModal = ({ isOpen, onFinish }) => {
           </Button>
         </Stack>
       </ModalContainer>
+      </Blanket>
     </>
   );
 };

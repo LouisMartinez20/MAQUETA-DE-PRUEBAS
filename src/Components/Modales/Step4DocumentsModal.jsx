@@ -52,7 +52,7 @@ export const Step4DocumentsModal = ({
     };
     return (
         <>
-            <Blanket reactPortalId="modal-root" />
+            <Blanket reactPortalId="modal-root" >
             <ModalContainer>
                 <ModalHeader>
                     <Text type="title" size="large" appearance="dark" weight="bold">
@@ -177,6 +177,7 @@ export const Step4DocumentsModal = ({
                     </Stack>
                 </Stack>
             </ModalContainer>
+      </Blanket>
         </>
     );
 };

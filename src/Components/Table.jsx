@@ -19,6 +19,7 @@ import {
 import { StyledTableWrapper } from "./Styles";
 import { useEffect, useState } from "react";
 import { DetailsModal } from "./Modales/DetailsModal";
+import { FilesModal } from "./Modales/FilesModal";
 
 export const TableComponent = () => {
   const [isMobile, setIsMobile] = useState(() => {
@@ -26,6 +27,7 @@ export const TableComponent = () => {
     return window.matchMedia("(max-width: 1024px)").matches;
   });
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isFilesModalOpen, setIsFilesModalOpen] = useState(false);
   const [selectedAbsence, setSelectedAbsence] = useState(null);
 
   useEffect(() => {
@@ -92,6 +94,16 @@ export const TableComponent = () => {
 
   const handleCloseModal = () => {
     setIsModalOpen(false);
+    setSelectedAbsence(null);
+  };
+
+  const handleViewFiles = (absence) => {
+    setSelectedAbsence(absence);
+    setIsFilesModalOpen(true);
+  };
+
+  const handleCloseFilesModal = () => {
+    setIsFilesModalOpen(false);
     setSelectedAbsence(null);
   };
   return (
@@ -186,6 +198,7 @@ export const TableComponent = () => {
                   size="20px"
                   variant="empty"
                   cursorHover={true}
+                  onClick={() => handleViewFiles(absence)}
                 />
               </Td>
             </Tr>
@@ -214,6 +227,14 @@ export const TableComponent = () => {
         <DetailsModal
           isOpen={isModalOpen}
           onClose={handleCloseModal}
+          absence={selectedAbsence}
+        />
+      )}
+
+      {isFilesModalOpen && (
+        <FilesModal
+          isOpen={isFilesModalOpen}
+          onClose={handleCloseFilesModal}
           absence={selectedAbsence}
         />
       )}

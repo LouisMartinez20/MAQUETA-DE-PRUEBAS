@@ -1,0 +1,32 @@
+import styled from "styled-components";
+
+export const StyledModalContainer = styled.div`
+  position: relative;
+  background-color: #ffffff;
+  border-radius: 8px;
+  width: 90%;
+  max-width: 640px;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+`;
+
+export const StyledModalHeader = styled.div`
+  padding: 24px;
+  border-bottom: 1px solid #e0e0e0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+`;
+
+export const AlertRow = styled.div`
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+  padding: 12px 0;
+  border-bottom: 1px solid #f0f0f0;
+
+  &:last-child {
+    border-bottom: none;
+  }
+`;
