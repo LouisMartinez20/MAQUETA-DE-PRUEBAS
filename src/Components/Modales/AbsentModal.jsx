@@ -1,3 +1,4 @@
+import { createPortal } from "react-dom";
 import {
   Blanket,
   Stack,
@@ -8,11 +9,9 @@ import {
   Textarea,
 } from "@inubekit/inubekit";
 import { MdClose } from "react-icons/md";
-import { StyledModalContainer, StyledModalHeader } from "./AbsentModal.styles";
-
+import { StyledModalContainer, StyledModalHeader } from "./modal.styles.js";
 export const AbsentModal = ({ isOpen, onClose, data }) => {
   if (!isOpen) return null;
-
   const {
     motivo = "",
     submotivo = "",
@@ -20,8 +19,8 @@ export const AbsentModal = ({ isOpen, onClose, data }) => {
     duracion = "",
     detallesMotivo = "",
   } = data || {};
-
-  return (
+  const modalRoot = document.getElementById("modal-root");
+  return createPortal(
     <Blanket>
       <StyledModalContainer>
         <StyledModalHeader>
@@ -96,6 +95,7 @@ export const AbsentModal = ({ isOpen, onClose, data }) => {
           </Stack>
         </Stack>
       </StyledModalContainer>
-    </Blanket>
+    </Blanket>,
+    modalRoot
   );
 };

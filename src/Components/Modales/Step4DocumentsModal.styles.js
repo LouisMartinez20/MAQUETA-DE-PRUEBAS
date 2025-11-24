@@ -1,6 +1,5 @@
 import styled from "styled-components";
 import { inube } from "@inubekit/inubekit";
-
 export const ModalContainer = styled.div`
   position: fixed;
   top: 50%;
@@ -16,7 +15,6 @@ export const ModalContainer = styled.div`
   max-height: 80vh;
   overflow-y: auto;
 `;
-
 export const ModalHeader = styled.div`
   display: flex;
   justify-content: space-between;
@@ -25,7 +23,6 @@ export const ModalHeader = styled.div`
   padding-bottom: 16px;
   border-bottom: 1px solid ${inube.palette.neutral.N40};
 `;
-
 export const UploadArea = styled.div`
   border: 2px dashed ${inube.palette.neutral.N90};
   border-radius: 8px;
@@ -38,7 +35,6 @@ export const UploadArea = styled.div`
   justify-content: center;
   background-color: ${inube.palette.neutral.N0};
 `;
-
 export const FileCard = styled.div`
   border: 1px solid ${inube.palette.neutral.N40};
   border-radius: 8px;
@@ -51,7 +47,6 @@ export const FileCard = styled.div`
   gap: 16px;
   width: 250px;
 `;
-
 export const FileInfo = styled.div`
   display: flex;
   flex-direction: row;
@@ -60,7 +55,6 @@ export const FileInfo = styled.div`
   flex: 1;
   overflow: hidden;
 `;
-
 export const FileTextInfo = styled.div`
   display: flex;
   flex-direction: column;
@@ -68,7 +62,6 @@ export const FileTextInfo = styled.div`
   flex: 1;
   overflow: hidden;
 `;
-
 export const FileActions = styled.div`
   display: flex;
   gap: 12px;

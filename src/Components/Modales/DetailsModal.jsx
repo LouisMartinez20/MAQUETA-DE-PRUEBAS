@@ -1,3 +1,4 @@
+import { createPortal } from "react-dom";
 import {
   Blanket,
   Stack,
@@ -8,27 +9,46 @@ import {
   Textarea,
   Tag,
 } from "@inubekit/inubekit";
-import { MdClose, MdOutlineVisibility  } from "react-icons/md";
+import { MdClose, MdOutlineVisibility } from "react-icons/md";
 import {
   ModalContainer,
   ModalHeader,
   RequirementRow,
-  
 } from "./DetailsModal.styles";
 const mockRequirements = [
-  { id: 1, name: "Cita médica programada", status: "Sin evaluar", tagAppearance: "warning" },
-  { id: 2, name: "Incapacidad médica emitida por una EPS", status: "Cumple", tagAppearance: "success" },
-  { id: 3, name: "Orden médica de tratamiento", status: "Sin evaluar", tagAppearance: "warning" },
+  {
+    id: 1,
+    name: "Cita médica programada",
+    status: "Sin evaluar",
+    tagAppearance: "warning",
+  },
+  {
+    id: 2,
+    name: "Incapacidad médica emitida por una EPS",
+    status: "Cumple",
+    tagAppearance: "success",
+  },
+  {
+    id: 3,
+    name: "Orden médica de tratamiento",
+    status: "Sin evaluar",
+    tagAppearance: "warning",
+  },
 ];
-export const DetailsModal = ({ isOpen, onClose, absence, requirements = mockRequirements }) => {
+export const DetailsModal = ({
+  isOpen,
+  onClose,
+  absence,
+  requirements = mockRequirements,
+}) => {
   if (!isOpen) return null;
-  return (
-    <>
-      <Blanket reactPortalId="modal-root" >
+  const modalRoot = document.getElementById("modal-root");
+  return createPortal(
+    <Blanket>
       <ModalContainer>
         <ModalHeader>
           <Text type="title" size="large" appearance="dark" weight="bold">
-            Detalles 
+            Detalles
           </Text>
           <Stack direction="row" gap="8px" alignItems="center">
             <Text type="label" size="medium" appearance="dark">
@@ -77,7 +97,7 @@ export const DetailsModal = ({ isOpen, onClose, absence, requirements = mockRequ
                     displayIcon={false}
                   />
                   <Icon
-                    icon={<MdOutlineVisibility  />}
+                    icon={<MdOutlineVisibility />}
                     appearance="dark"
                     size="20px"
                     spacing="narrow"
@@ -100,7 +120,7 @@ export const DetailsModal = ({ isOpen, onClose, absence, requirements = mockRequ
           </Stack>
         </Stack>
       </ModalContainer>
-      </Blanket>
-    </>
+    </Blanket>,
+    modalRoot
   );
 };

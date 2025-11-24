@@ -1,4 +1,5 @@
 import { useState, useRef } from "react";
+import { createPortal } from "react-dom";
 import { Blanket, Stack, Text, Button, Icon } from "@inubekit/inubekit";
 import {
     MdClose,
@@ -46,13 +47,12 @@ export const Step4DocumentsModal = ({
         const url = URL.createObjectURL(file.file);
         window.open(url, "_blank");
     };
-
     const handleButtonClick = () => {
         fileInputRef.current?.click();
     };
-    return (
-        <>
-            <Blanket reactPortalId="modal-root" >
+    const modalRoot = document.getElementById("modal-root");
+    return createPortal(
+        <Blanket>
             <ModalContainer>
                 <ModalHeader>
                     <Text type="title" size="large" appearance="dark" weight="bold">
@@ -177,7 +177,7 @@ export const Step4DocumentsModal = ({
                     </Stack>
                 </Stack>
             </ModalContainer>
-      </Blanket>
-        </>
+        </Blanket>,
+        modalRoot
     );
 };

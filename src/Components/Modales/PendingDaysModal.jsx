@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { createPortal } from "react-dom";
 import {
   Blanket,
   Stack,
@@ -14,11 +15,7 @@ import {
   Td,
 } from "@inubekit/inubekit";
 import { MdClose } from "react-icons/md";
-import {
-  StyledModalContainer,
-  StyledModalHeader,
-} from "./PendingDaysModal.styles";
-
+import { StyledModalContainer, StyledModalHeader } from "./modal.styles.js";
 export const PendingDaysModal = ({
   isOpen,
   onClose,
@@ -28,14 +25,11 @@ export const PendingDaysModal = ({
   usedRows = [],
 }) => {
   const [selectedTab, setSelectedTab] = useState("pendientes");
-
   if (!isOpen) return null;
-
   const tabs = [
     { id: "pendientes", label: "Días pendientes" },
     { id: "utilizados", label: "Días utilizados" },
   ];
-
   const Summary = ({ label, value }) => (
     <Stack direction="row" gap="8px" alignItems="baseline">
       <Text type="body" size="medium" appearance="gray">
@@ -46,7 +40,6 @@ export const PendingDaysModal = ({
       </Text>
     </Stack>
   );
-
   const PendingContent = () => (
     <Stack direction="column" gap="16px">
       <Summary
@@ -100,7 +93,6 @@ export const PendingDaysModal = ({
       </Table>
     </Stack>
   );
-
   const UsedContent = () => (
     <Stack direction="column" gap="16px">
       <Summary label="Total de días utilizados a la fecha:" value={usedTotal} />
@@ -165,8 +157,8 @@ export const PendingDaysModal = ({
       </Table>
     </Stack>
   );
-
-  return (
+  const modalRoot = document.getElementById("modal-root");
+  return createPortal(
     <Blanket>
       <StyledModalContainer>
         <StyledModalHeader>
@@ -193,7 +185,6 @@ export const PendingDaysModal = ({
             scroll={false}
           />
         </StyledModalHeader>
-
         <Stack padding="24px" direction="column" gap="20px">
           {selectedTab === "pendientes" ? <PendingContent /> : <UsedContent />}
           <Stack direction="row" justifyContent="flex-end">
@@ -203,6 +194,7 @@ export const PendingDaysModal = ({
           </Stack>
         </Stack>
       </StyledModalContainer>
-    </Blanket>
+    </Blanket>,
+    modalRoot
   );
 };

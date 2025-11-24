@@ -1,3 +1,4 @@
+import { createPortal } from "react-dom";
 import {
   Blanket,
   Stack,
@@ -7,19 +8,15 @@ import {
   Textfield,
 } from "@inubekit/inubekit";
 import { MdClose } from "react-icons/md";
-import {
-  StyledModalContainer,
-  StyledModalHeader,
-} from "./AffiliationModal.styles";
-
+import { StyledModalContainer, StyledModalHeader } from "./modal.styles.js";
 export const AffiliationModal = ({
   isOpen,
   onClose,
   values = { fechaAfiliacion: "", tiempoAfiliacion: "", estadoAfiliacion: "" },
 }) => {
   if (!isOpen) return null;
-
-  return (
+  const modalRoot = document.getElementById("modal-root");
+  return createPortal(
     <Blanket>
       <StyledModalContainer>
         <StyledModalHeader>
@@ -43,7 +40,6 @@ export const AffiliationModal = ({
             Consulta la información de afiliación del colaborador.
           </Text>
         </StyledModalHeader>
-
         <Stack padding="24px" direction="column" gap="16px">
           <Textfield
             label="Fecha de afiliación"
@@ -69,7 +65,6 @@ export const AffiliationModal = ({
             disabled
             fullwidth
           />
-
           <Stack
             direction="row"
             justifyContent="flex-end"
@@ -82,6 +77,7 @@ export const AffiliationModal = ({
           </Stack>
         </Stack>
       </StyledModalContainer>
-    </Blanket>
+    </Blanket>,
+    modalRoot
   );
 };

@@ -1,6 +1,5 @@
 import styled from "styled-components";
 import { inube } from "@inubekit/inubekit";
-
 export const ModalContainer = styled.div`
   position: fixed;
   top: 50%;
@@ -16,7 +15,6 @@ export const ModalContainer = styled.div`
   max-height: 80vh;
   overflow-y: auto;
 `;
-
 export const ModalHeader = styled.div`
   display: flex;
   justify-content: space-between;
@@ -25,7 +23,6 @@ export const ModalHeader = styled.div`
   padding-bottom: 16px;
   border-bottom: 1px solid ${inube.palette.neutral.N40};
 `;
-
 export const RequirementRow = styled.div`
   display: flex;
   justify-content: space-between;
@@ -36,7 +33,6 @@ export const RequirementRow = styled.div`
   background-color: ${inube.palette.neutral.N10};
   gap: 16px;
 `;
-
 export const RequirementInfo = styled.div`
   display: flex;
   align-items: center;

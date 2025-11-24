@@ -1,4 +1,5 @@
 import { useState, useCallback } from "react";
+import { createPortal } from "react-dom";
 import {
   Table,
   Thead,
@@ -13,20 +14,17 @@ import {
   Button,
 } from "@inubekit/inubekit";
 import { MdAttachFile, MdClose } from "react-icons/md";
-import { StyledModalContainer, StyledModalHeader } from "./FilesModal.styles";
+import { StyledModalContainer, StyledModalHeader } from "./modal.styles.js";
 import { Step4DocumentsModal } from "./Step4DocumentsModal";
 import { DOCUMENTS_DATA } from "../FormSteps/Step4Documents";
-
 export const FilesModal = ({ isOpen, onClose, absence }) => {
   const [isDocModalOpen, setIsDocModalOpen] = useState(false);
   const [selectedDocument, setSelectedDocument] = useState(null);
   const [documents, setDocuments] = useState({});
-
   const handleAttachClick = useCallback((document) => {
     setSelectedDocument(document);
     setIsDocModalOpen(true);
   }, []);
-
   const handleCloseDocModal = (uploadedFiles) => {
     if (uploadedFiles && uploadedFiles.length > 0) {
       setDocuments((prev) => ({
@@ -40,15 +38,13 @@ export const FilesModal = ({ isOpen, onClose, absence }) => {
     setIsDocModalOpen(false);
     setSelectedDocument(null);
   };
-
   const handleClose = () => {
     onClose();
   };
-
   if (!isOpen) return null;
-
-  return (
-    <Blanket reactPortalId="modal-root">
+  const modalRoot = document.getElementById("modal-root");
+  return createPortal(
+    <Blanket>
       <StyledModalContainer>
         <StyledModalHeader>
           <Stack direction="column" gap="8px" width="100%">
@@ -69,7 +65,6 @@ export const FilesModal = ({ isOpen, onClose, absence }) => {
             </Text>
           </Stack>
         </StyledModalHeader>
-
         <Stack padding="24px" direction="column" gap="24px">
           <Table
             tableLayout="fixed"
@@ -103,7 +98,6 @@ export const FilesModal = ({ isOpen, onClose, absence }) => {
                 </Th>
               </Tr>
             </Thead>
-
             <Tbody>
               {DOCUMENTS_DATA.map((item) => (
                 <Tr key={item.id}>
@@ -124,12 +118,10 @@ export const FilesModal = ({ isOpen, onClose, absence }) => {
               ))}
             </Tbody>
           </Table>
-
           <Stack justifyContent="flex-end">
             <Button onClick={handleClose}>Cerrar</Button>
           </Stack>
         </Stack>
-
         {isDocModalOpen && (
           <Step4DocumentsModal
             isOpen={isDocModalOpen}
@@ -139,6 +131,7 @@ export const FilesModal = ({ isOpen, onClose, absence }) => {
           />
         )}
       </StyledModalContainer>
-    </Blanket>
+    </Blanket>,
+    modalRoot
   );
 };
