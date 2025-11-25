@@ -23,13 +23,10 @@ export const AppContainer = styled.div`
   height: 100vh;
   margin: 0 auto;
   background-color: #ffffff;
-
-
   @media (max-width: 1440px) {
     width: 100%;
   }
 `;
-
 export const ContentArea = styled.div`
   display: flex;
   flex: 1;
@@ -40,7 +37,6 @@ export const BodyArea = styled.main`
   flex-direction: column;
   padding: 4rem;
   overflow-y: auto;
-
   @media (max-width: 768px) {
     padding: 1rem;
 `;

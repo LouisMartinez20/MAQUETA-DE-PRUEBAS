@@ -12,7 +12,6 @@ import { MdOutlineRule } from "react-icons/md";
 import { useNavigate } from "react-router-dom";
 import { ROUTES } from "../routes";
 import { Step5SuccessModal } from "../Components/Modales/Step5SuccessModal";
-
 export const ReportAbsencePage = () => {
   const navigate = useNavigate();
   const [currentStep, setCurrentStep] = useState(1); // controla el paso actual del formulario desde los botones
@@ -27,7 +26,6 @@ export const ReportAbsencePage = () => {
   });
   const [documents, setDocuments] = useState({}); // controla los documentos adjuntos
   const [isSuccessOpen, setIsSuccessOpen] = useState(false); // controla la visibilidad del modal de éxito
-
   const breadcrumbs = [
     { id: "inicio", label: "Inicio", path: ROUTES.HOME },
     { id: "elipse", label: "...", path: ROUTES.AUSENCIAS.LIST },
@@ -38,7 +36,6 @@ export const ReportAbsencePage = () => {
       isActive: true,
     },
   ];
-
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setFormData((prev) => ({
@@ -47,8 +44,6 @@ export const ReportAbsencePage = () => {
     }));
   };
   
-
-
   const isStepValid = (step) => {
     switch (step) {
       case 1:
@@ -69,18 +64,15 @@ export const ReportAbsencePage = () => {
         return false;
     }
   };
-
   const handleSubmit = () => {
     console.log("Datos del formulario:", formData);
     console.log("Documentos adjuntos:", documents);
     setIsSuccessOpen(true);
   };
-
   const handleFinishSuccess = () => {
     setIsSuccessOpen(false);
     navigate(ROUTES.AUSENCIAS.LIST);
   };
-
   const handleCancel = () => {
     if (
       window.confirm(
@@ -90,19 +82,16 @@ export const ReportAbsencePage = () => {
       navigate(ROUTES.AUSENCIAS.LIST);
     }
   };
-
   const handleNext = () => {
     if (isStepValid(currentStep) && currentStep < 5) {
       setCurrentStep((prev) => prev + 1);
     }
   };
-
   const handleBack = () => {
     if (currentStep > 1) {
       setCurrentStep((prev) => prev - 1);
     }
   };
-
   const renderCurrentStep = (step) => {
     const commonProps = {
       formData,
@@ -125,7 +114,6 @@ export const ReportAbsencePage = () => {
         return null;
     }
   };
-
   return (
     <>
       <Banner />
@@ -142,7 +130,6 @@ export const ReportAbsencePage = () => {
           showBackButton={true}
           onBack={handleCancel}
         />
-
         <Button variant="outlined" appearance="gray" spacing="compact">
           <Stack direction="row" alignItems="center" gap="8px">
             <Icon
@@ -157,27 +144,27 @@ export const ReportAbsencePage = () => {
           </Stack>
         </Button>
       </Stack>
-
-      <AssistedComponent
-        onSubmitClick={handleSubmit}
-        validateStep={isStepValid}
-        onStepChange={setCurrentStep}
-      />
-
-      <Stack
-        direction="column"
-        justifyContent="space-between"
-        height="calc(100vh - 420px)"
-      >
-        <Box borderRadius="8px" padding="24px">
-          {renderCurrentStep(currentStep)}
-        </Box>
-
+          <AssistedComponent
+            onSubmitClick={handleSubmit}
+            validateStep={isStepValid}
+            onStepChange={setCurrentStep}
+          />
+          <Stack direction="column" justifyContent="space-between">
+            <Box
+              borderRadius="8px"
+              padding="24px"
+              style={{
+                maxHeight: currentStep === 5 ? "calc(100vh - 420px)" : "unset",
+                overflowY: currentStep === 5 ? "auto" : "visible",
+              }}
+            >
+              {renderCurrentStep(currentStep)}
+            </Box>
         <Stack
           direction="row"
           justifyContent="flex-end"
           gap="16px"
-          padding="0px 0px 16px 0px"
+          padding="16px 0px "
         >
           {currentStep > 1 && (
             <Button
@@ -189,7 +176,6 @@ export const ReportAbsencePage = () => {
               Regresar
             </Button>
           )}
-
           {currentStep < 5 ? (
             <Button
               variant="filled"
@@ -212,7 +198,6 @@ export const ReportAbsencePage = () => {
           )}
         </Stack>
       </Stack>
-
       {isSuccessOpen && (
         <Step5SuccessModal
           isOpen={isSuccessOpen}
