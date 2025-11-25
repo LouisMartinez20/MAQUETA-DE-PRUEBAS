@@ -17,7 +17,7 @@ import { MdAttachFile, MdClose } from "react-icons/md";
 import { StyledModalContainer, StyledModalHeader } from "./modal.styles.js";
 import { Step4DocumentsModal } from "./Step4DocumentsModal";
 import { DOCUMENTS_DATA } from "../FormSteps/Step4Documents";
-export const FilesModal = ({ isOpen, onClose, absence }) => {
+export const FilesModal = ({ isOpen, onClose, data }) => {
   const [isDocModalOpen, setIsDocModalOpen] = useState(false);
   const [selectedDocument, setSelectedDocument] = useState(null);
   const [documents, setDocuments] = useState({});
@@ -50,7 +50,7 @@ export const FilesModal = ({ isOpen, onClose, absence }) => {
           <Stack direction="column" gap="8px" width="100%">
             <Stack justifyContent="space-between" alignItems="center">
               <Text type="title" size="large" weight="bold">
-                Documentos - {absence?.reason}
+                Documentos - {data?.reason}
               </Text>
               <Icon
                 icon={<MdClose />}

@@ -26,11 +26,7 @@ export const PendingDaysModal = ({
 }) => {
   const [selectedTab, setSelectedTab] = useState("pendientes");
   if (!isOpen) return null;
-  const tabs = [
-    { id: "pendientes", label: "Días pendientes" },
-    { id: "utilizados", label: "Días utilizados" },
-  ];
-  const Summary = ({ label, value }) => (
+    const Summary = ({ label, value }) => (
     <Stack direction="row" gap="8px" alignItems="baseline">
       <Text type="body" size="medium" appearance="gray">
         {label}
@@ -157,6 +153,11 @@ export const PendingDaysModal = ({
       </Table>
     </Stack>
   );
+  const tabs = [
+    { id: "pendientes", label: "Días pendientes" },
+    { id: "utilizados", label: "Días utilizados" },
+  ];
+
   const modalRoot = document.getElementById("modal-root");
   return createPortal(
     <Blanket>

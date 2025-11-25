@@ -9,12 +9,13 @@ import {
 } from "@inubekit/inubekit";
 import { MdClose } from "react-icons/md";
 import { StyledModalContainer, StyledModalHeader } from "./modal.styles.js";
-export const AffiliationModal = ({
-  isOpen,
-  onClose,
-  values = { fechaAfiliacion: "", tiempoAfiliacion: "", estadoAfiliacion: "" },
-}) => {
+export const AffiliationModal = ({ isOpen, onClose, data }) => {
   if (!isOpen) return null;
+  const {
+    fechaAfiliacion = "",
+    tiempoAfiliacion = "",
+    estadoAfiliacion = "",
+  } = data || {};
   const modalRoot = document.getElementById("modal-root");
   return createPortal(
     <Blanket>
@@ -44,33 +45,25 @@ export const AffiliationModal = ({
           <Textfield
             label="Fecha de afiliación"
             id="fechaAfiliacion"
-            placeholder="YYYY-MM-DD"
-            value={values?.fechaAfiliacion || ""}
+            value={fechaAfiliacion}
             disabled
             fullwidth
           />
           <Textfield
             label="Tiempo de afiliación"
             id="tiempoAfiliacion"
-            placeholder="Ej: 2 años, 3 meses"
-            value={values?.tiempoAfiliacion || ""}
+            value={tiempoAfiliacion}
             disabled
             fullwidth
           />
           <Textfield
             label="Estado de afiliación"
             id="estadoAfiliacion"
-            placeholder="Ej: Activa"
-            value={values?.estadoAfiliacion || ""}
+            value={estadoAfiliacion}
             disabled
             fullwidth
           />
-          <Stack
-            direction="row"
-            justifyContent="flex-end"
-            gap="8px"
-            margin="8px 0 0 0"
-          >
+          <Stack direction="row" justifyContent="flex-end" margin="8px 0 0 0">
             <Button appearance="primary" onClick={onClose}>
               Cerrar
             </Button>

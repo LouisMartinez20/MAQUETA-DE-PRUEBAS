@@ -202,7 +202,7 @@ export const Banner = () => {
         <AffiliationModal
           isOpen={isAffiliationOpen}
           onClose={closeAffiliation}
-          values={affiliationData}
+          data={affiliationData}
         />
       )}
       {isAlertsOpen && (

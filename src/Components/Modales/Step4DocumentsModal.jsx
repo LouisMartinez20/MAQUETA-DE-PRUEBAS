@@ -1,5 +1,5 @@
+
 import { useState, useRef } from "react";
-import { createPortal } from "react-dom";
 import { Blanket, Stack, Text, Button, Icon } from "@inubekit/inubekit";
 import {
     MdClose,
@@ -16,6 +16,7 @@ import {
     FileTextInfo,
     FileActions,
 } from "./Step4DocumentsModal.styles";
+
 export const Step4DocumentsModal = ({
     isOpen,
     onClose,
@@ -24,7 +25,9 @@ export const Step4DocumentsModal = ({
 }) => {
     const [uploadedFiles, setUploadedFiles] = useState(existingFiles);
     const fileInputRef = useRef(null);
+
     if (!isOpen) return null;
+
     const handleFileSelect = (event) => {
         const file = event.target.files?.[0];
         if (file && uploadedFiles.length < 3) {
@@ -50,9 +53,9 @@ export const Step4DocumentsModal = ({
     const handleButtonClick = () => {
         fileInputRef.current?.click();
     };
-    const modalRoot = document.getElementById("modal-root");
-    return createPortal(
-        <Blanket>
+
+    return (
+        <Blanket portalId="modal-root">
             <ModalContainer>
                 <ModalHeader>
                     <Text type="title" size="large" appearance="dark" weight="bold">
@@ -68,7 +71,7 @@ export const Step4DocumentsModal = ({
                             size="24px"
                             spacing="narrow"
                             cursorHover={true}
-                            onClick={onClose}
+                            onClick={() => onClose(null)}
                         />
                     </Stack>
                 </ModalHeader>
@@ -177,7 +180,6 @@ export const Step4DocumentsModal = ({
                     </Stack>
                 </Stack>
             </ModalContainer>
-        </Blanket>,
-        modalRoot
+        </Blanket>
     );
 };
