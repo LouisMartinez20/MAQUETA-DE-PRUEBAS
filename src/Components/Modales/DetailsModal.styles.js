@@ -8,7 +8,7 @@ export const ModalContainer = styled.div`
   background-color: ${inube.palette.neutral.N10};
   border-radius: 8px;
   box-shadow: 0px 4px 16px rgba(0, 0, 0, 0.2);
-  padding: 32px;
+  padding: 24px;
   width: 90%;
   max-width: 700px;
   z-index: 1001;

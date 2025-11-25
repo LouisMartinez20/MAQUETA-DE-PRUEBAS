@@ -1,8 +1,7 @@
 import { Tabs } from "@inubekit/inubekit";
 import { MdOutlineReportProblem } from "react-icons/md";
-import { useState } from "react";
-export const TabsGroup = () => {
-  const [selectedTab, setSelectedTab] = useState("reportadas");
+
+export const TabsGroup = ({ selectedTab, onTabChange }) => {
   const tabs = [
     {
       id: "reportadas",
@@ -17,14 +16,12 @@ export const TabsGroup = () => {
       },
     },
   ];
-  const handleChange = (id) => {
-    setSelectedTab(id);
-  };
+
   return (
     <Tabs
       tabs={tabs}
       selectedTab={selectedTab}
-      onChange={handleChange}
+      onChange={onTabChange}
       scroll={false}
     />
   );
