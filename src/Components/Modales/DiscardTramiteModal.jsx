@@ -1,6 +1,6 @@
 import { Blanket, Stack, Text, Icon, Button } from "@inubekit/inubekit";
 import { MdClose } from "react-icons/md";
-import { StyledModalContainer, StyledModalHeader } from "./modal.styles";
+import { StyledModalContainerSmall, StyledModalHeader } from "./modal.styles";
 export const DiscardTramiteModal = ({
     isOpen,
     onClose,
@@ -16,7 +16,7 @@ export const DiscardTramiteModal = ({
     };
     return (
         <Blanket portalId="modal-root">
-            <StyledModalContainer>
+            <StyledModalContainerSmall>
                 <StyledModalHeader>
                     <Stack
                         direction="row"
@@ -59,7 +59,7 @@ export const DiscardTramiteModal = ({
                         </Button>
                     </Stack>
                 </Stack>
-            </StyledModalContainer>
+            </StyledModalContainerSmall>
         </Blanket>
     );
 };

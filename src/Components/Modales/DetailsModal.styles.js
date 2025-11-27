@@ -11,7 +11,6 @@ export const ModalContainer = styled.div`
   padding: 24px;
   width: 90%;
   max-width: 700px;
-  z-index: 1001;
   max-height: 80vh;
   overflow-y: auto;
 `;

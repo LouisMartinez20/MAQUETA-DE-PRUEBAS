@@ -2,7 +2,7 @@ import { createPortal } from "react-dom";
 import { Blanket, Stack, Text, Icon, Button } from "@inubekit/inubekit";
 import { MdClose, MdOutlineReportProblem } from "react-icons/md";
 import {
-  StyledModalContainer,
+  StyledModalContainerMedium,
   StyledModalHeader,
   AlertRow,
 } from "./modal.styles.js";
@@ -11,7 +11,7 @@ export const AlertsModal = ({ isOpen, onClose, alerts = [] }) => {
   const modalRoot = document.getElementById("modal-root");
   return createPortal(
     <Blanket>
-      <StyledModalContainer>
+      <StyledModalContainerMedium>
         <StyledModalHeader>
           <Stack
             direction="row"
@@ -33,12 +33,7 @@ export const AlertsModal = ({ isOpen, onClose, alerts = [] }) => {
             Listado de alertas recientes del colaborador.
           </Text>
         </StyledModalHeader>
-        <Stack padding="24px" direction="column" gap="20px">
-          {alerts.length === 0 && (
-            <Text type="body" size="medium" appearance="gray">
-              No hay alertas registradas.
-            </Text>
-          )}
+        <Stack padding="24px 0" direction="column" gap="20px">
           {alerts.map((alert) => (
             <AlertRow key={alert.id}>
               <Icon
@@ -76,7 +71,7 @@ export const AlertsModal = ({ isOpen, onClose, alerts = [] }) => {
             </Button>
           </Stack>
         </Stack>
-      </StyledModalContainer>
+      </StyledModalContainerMedium>
     </Blanket>,
     modalRoot
   );

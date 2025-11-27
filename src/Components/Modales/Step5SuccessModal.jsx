@@ -1,13 +1,13 @@
 import { createPortal } from "react-dom";
 import { Blanket, Stack, Text, Icon, Button } from "@inubekit/inubekit";
 import { MdCheckCircle } from "react-icons/md";
-import { StyledModalContainer, StyledModalHeader } from "./modal.styles";
+import { StyledModalContainerSmall, StyledModalHeader } from "./modal.styles";
 export const Step5SuccessModal = ({ isOpen, onFinish }) => {
   if (!isOpen) return null;
   const modalRoot = document.getElementById("modal-root");
   return createPortal(
     <Blanket>
-      <StyledModalContainer>
+      <StyledModalContainerSmall>
         <Stack direction="column" gap="24px" alignItems="center">
           <Icon
             icon={<MdCheckCircle />}
@@ -32,7 +32,7 @@ export const Step5SuccessModal = ({ isOpen, onFinish }) => {
             Finalizar
           </Button>
         </Stack>
-      </StyledModalContainer>
+      </StyledModalContainerSmall>
     </Blanket>,
     modalRoot
   );

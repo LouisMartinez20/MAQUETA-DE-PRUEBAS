@@ -1,5 +1,4 @@
 import { useState, useCallback } from "react";
-import { createPortal } from "react-dom";
 import {
   Table,
   Thead,
@@ -42,9 +41,8 @@ export const FilesModal = ({ isOpen, onClose, data }) => {
     onClose();
   };
   if (!isOpen) return null;
-  const modalRoot = document.getElementById("modal-root");
-  return createPortal(
-    <Blanket>
+  return (
+    <Blanket portalId="modal-root">
       <StyledModalContainer>
         <StyledModalHeader>
           <Stack direction="column" gap="8px" width="100%">
@@ -122,7 +120,8 @@ export const FilesModal = ({ isOpen, onClose, data }) => {
             <Button onClick={handleClose}>Cerrar</Button>
           </Stack>
         </Stack>
-        {isDocModalOpen && (
+      </StyledModalContainer>
+              {isDocModalOpen && (
           <Step4DocumentsModal
             isOpen={isDocModalOpen}
             onClose={handleCloseDocModal}
@@ -130,8 +129,6 @@ export const FilesModal = ({ isOpen, onClose, data }) => {
             existingFiles={documents[selectedDocument?.id]?.files || []}
           />
         )}
-      </StyledModalContainer>
-    </Blanket>,
-    modalRoot
+    </Blanket>
   );
 };

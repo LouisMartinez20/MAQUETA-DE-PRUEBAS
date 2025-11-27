@@ -8,7 +8,10 @@ import {
   Textfield,
 } from "@inubekit/inubekit";
 import { MdClose } from "react-icons/md";
-import { StyledModalContainer, StyledModalHeader } from "./modal.styles.js";
+import {
+  StyledModalContainerMedium,
+  StyledModalHeader,
+} from "./modal.styles.js";
 export const AffiliationModal = ({ isOpen, onClose, data }) => {
   if (!isOpen) return null;
   const {
@@ -19,7 +22,7 @@ export const AffiliationModal = ({ isOpen, onClose, data }) => {
   const modalRoot = document.getElementById("modal-root");
   return createPortal(
     <Blanket>
-      <StyledModalContainer>
+      <StyledModalContainerMedium>
         <StyledModalHeader>
           <Stack
             direction="row"
@@ -41,7 +44,7 @@ export const AffiliationModal = ({ isOpen, onClose, data }) => {
             Consulta la información de afiliación del colaborador.
           </Text>
         </StyledModalHeader>
-        <Stack padding="24px" direction="column" gap="16px">
+        <Stack padding="24px 0" direction="column" gap="16px">
           <Textfield
             label="Fecha de afiliación"
             id="fechaAfiliacion"
@@ -69,7 +72,7 @@ export const AffiliationModal = ({ isOpen, onClose, data }) => {
             </Button>
           </Stack>
         </Stack>
-      </StyledModalContainer>
+      </StyledModalContainerMedium>
     </Blanket>,
     modalRoot
   );

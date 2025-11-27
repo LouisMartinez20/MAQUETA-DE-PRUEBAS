@@ -64,7 +64,6 @@ export const Step2Reason = ({ formData, onChange }) => {
           value={formData?.detallesMotivo || ""}
           onChange={onChange}
           maxLength={200}
-          required
           fullwidth
         />
       </Grid>

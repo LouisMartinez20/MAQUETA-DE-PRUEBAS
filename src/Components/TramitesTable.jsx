@@ -21,7 +21,6 @@ import { useEffect, useState } from "react";
 import { DetailsModal } from "./Modales/DetailsModal";
 import { FilesModal } from "./Modales/FilesModal";
 import { DiscardTramiteModal } from "./Modales/DiscardTramiteModal";
-
 export const TramitesTable = () => {
   const [isMobile, setIsMobile] = useState(() => {
     if (typeof window === "undefined") return false;
@@ -31,21 +30,17 @@ export const TramitesTable = () => {
   const [isFilesModalOpen, setIsFilesModalOpen] = useState(false);
   const [isDiscardModalOpen, setIsDiscardModalOpen] = useState(false);
   const [selectedTramite, setSelectedTramite] = useState(null);
-
   useEffect(() => {
     if (typeof window === "undefined") return;
-
     const mql = window.matchMedia("(max-width: 1024px)");
     const handler = (e) => {
       setIsMobile(e.matches);
     };
-
     if (mql.addEventListener) {
       mql.addEventListener("change", handler);
     } else {
       mql.addListener(handler);
     }
-
     return () => {
       if (mql.removeEventListener) {
         mql.removeEventListener("change", handler);
@@ -54,7 +49,6 @@ export const TramitesTable = () => {
       }
     };
   }, []);
-
   const tramites = [
     {
       id: 1,
@@ -81,33 +75,27 @@ export const TramitesTable = () => {
       estado: "Rechazada",
     },
   ];
-
   const handleViewDetails = (tramite) => {
     setSelectedTramite(tramite);
     setIsModalOpen(true);
   };
-
   const handleCloseModal = () => {
     setIsModalOpen(false);
     setSelectedTramite(null);
   };
-
   const handleCancelTramite = (tramite) => {
     setSelectedTramite(tramite);
     setIsDiscardModalOpen(true);
   };
-
   const handleConfirmDiscard = (tramite) => {
     console.log("Trámite descartado:", tramite);
     // TODO: Lógica para descartar el trámite
     // Aquí puedes hacer una petición al backend o actualizar el estado
   };
-
   const handleCloseDiscardModal = () => {
     setIsDiscardModalOpen(false);
     setSelectedTramite(null);
   };
-
   return (
     <StyledTableWrapper>
       <Table
@@ -224,7 +212,6 @@ export const TramitesTable = () => {
           </Tr>
         </Tfoot>
       </Table>
-
       {isModalOpen && (
         <DetailsModal
           isOpen={isModalOpen}
@@ -232,7 +219,6 @@ export const TramitesTable = () => {
           absence={selectedTramite}
         />
       )}
-
       {isFilesModalOpen && (
         <FilesModal
           isOpen={isFilesModalOpen}
@@ -240,7 +226,6 @@ export const TramitesTable = () => {
           absence={selectedTramite}
         />
       )}
-
       {isDiscardModalOpen && (
         <DiscardTramiteModal
           isOpen={isDiscardModalOpen}
