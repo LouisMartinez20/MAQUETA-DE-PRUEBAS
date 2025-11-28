@@ -7,6 +7,7 @@ import {
   Button,
   Textfield,
   Textarea,
+  Box
 } from "@inubekit/inubekit";
 import { MdClose } from "react-icons/md";
 import { StyledModalContainer, StyledModalHeader } from "./modal.styles.js";
@@ -46,14 +47,28 @@ export const AbsentModal = ({ isOpen, onClose, data }) => {
         </StyledModalHeader>
         <Stack padding="24px" direction="column" gap="20px">
           <Stack direction="row" gap="16px">
-            <Textfield
-              label="Motivo"
-              id="motivo-ausencia"
-              value={motivo}
-              size="compact"
-              disabled
-              fullwidth
-            />
+            <Box
+              padding="8px"
+              margin="4px 0"
+              borderRadius="8px"
+              width="100%"
+              type="text-area"
+            >
+              <Text
+                size="medium"
+                weight="bold"
+                margin="0 0 4px 0"
+              >
+                Motivo
+              </Text>
+
+              <Text
+                size="small"
+                disabled
+              >
+                {motivo}
+              </Text>
+            </Box>
             <Textfield
               label="Submotivo"
               id="submotivo-ausencia"

@@ -11,10 +11,12 @@ export const Content = styled.div`
     right: 0;
     bottom: 0;
     background-image: url("/pattern.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
     opacity: 0.4;
     z-index: -1;
     left: 15px;
-
   }
 `;
 export const AppContainer = styled.div`

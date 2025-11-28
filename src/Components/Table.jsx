@@ -138,7 +138,7 @@ export const TableComponent = () => {
                 Fecha en que se produjo
               </Text>
             </Th>
-            <Th align="center" weight="bold">
+            <Th align="center" >
               <Text
                 as="span"
                 type="title"
@@ -206,7 +206,7 @@ export const TableComponent = () => {
         </Tbody>
         <Tfoot>
           <Tr>
-            <Td colSpan={5} align="right">
+            <Td colSpan={5} align="right" type="custom">
               <Stack justifyContent="flex-end" padding="8px 16px">
                 <Pagination
                   firstEntryInPage={0}
