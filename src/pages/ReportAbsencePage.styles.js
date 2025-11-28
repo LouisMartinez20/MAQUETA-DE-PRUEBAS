@@ -6,6 +6,7 @@ export const FormContainer = styled.div`
   gap: 16px;
   width: 100%;
   hight: 100%;
+  
 
   @media (max-width: 768px) {
     padding: 0;

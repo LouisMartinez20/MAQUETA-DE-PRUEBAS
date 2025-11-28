@@ -3,7 +3,6 @@ export const Content = styled.div`
   position: relative;
   width: 100%;
   height: 100%;
-  
   &::before {
     content: "";
     position: absolute;
@@ -11,9 +10,11 @@ export const Content = styled.div`
     left: 0;
     right: 0;
     bottom: 0;
-    background-image: url("/pattern2.png");
-    opacity: 0.6;
+    background-image: url("/pattern.png");
+    opacity: 0.4;
     z-index: -1;
+    left: 15px;
+
   }
 `;
 export const AppContainer = styled.div`

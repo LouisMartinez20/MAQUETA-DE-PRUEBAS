@@ -13,7 +13,6 @@ export const Step2Grid = styled.div`
   grid-template-columns: 1fr 1fr;
   gap: 16px;
 
-  /* 📱 Móvil: cambia a una sola columna */
   @media (max-width: 768px) {
     grid-template-columns: 1fr;
   }
