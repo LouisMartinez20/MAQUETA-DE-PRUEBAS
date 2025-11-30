@@ -11,21 +11,23 @@ import { BoxAttribute } from "../Box-attribute.jsx";
 /* --- Subcomponentes reutilizables --- */
 const BackAction = () => (
   <BackActionContainer>
-    <Button appearance="dark" spacing="compact" variant="none">
-      <Stack direction="row" gap="8px" alignItems="center">
-        <Icon
-          icon={<MdArrowBack />}
-          appearance="dark"
-          size="18px"
-          spacing="narrow"
-        />
-        <Text type="label" size="medium" weight="bold">
+    <Stack direction="row"  alignItems="center">
+      <Icon
+        icon={<MdArrowBack />}
+        appearance="dark"
+        size="18px"
+        spacing="narrow"
+      />
+
+      <Button appearance="dark" spacing="compact" variant="none"  >
+        
           Regresar a este paso
-        </Text>
-      </Stack>
-    </Button>
+       
+      </Button>
+    </Stack>
   </BackActionContainer>
 );
+
 
 const SectionCard = ({ title, children }) => (
   <SectionBox>

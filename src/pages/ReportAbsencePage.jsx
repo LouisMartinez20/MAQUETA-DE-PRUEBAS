@@ -130,18 +130,8 @@ export const ReportAbsencePage = () => {
           showBackButton={true}
           onBack={handleCancel}
         />
-        <Button variant="outlined" appearance="gray" spacing="compact">
-          <Stack direction="row" alignItems="center" gap="8px">
-            <Icon
-              icon={<MdOutlineRule />}
-              appearance="dark"
-              size="18px"
-              spacing="narrow"
-            />
-            <Text type="label" size="medium" appearance="dark" weight="bold">
-              Requisitos
-            </Text>
-          </Stack>
+        <Button variant="outlined" appearance="gray" spacing="compact" iconAfter={<MdOutlineRule />}>
+          Requisitos
         </Button>
       </Stack>
           <AssistedComponent

@@ -93,7 +93,7 @@ export const Step4Documents = ({ documents, setDocuments }) => {
               <Td align="left" appearance="light" type="text">
                 {item.documento}
               </Td>
-              <Td align="center" appearance="light" type="text">
+              <Td align="center" appearance="light" type="icon" >
                 <Icon
                   icon={<MdAttachFile />}
                   appearance="primary"
