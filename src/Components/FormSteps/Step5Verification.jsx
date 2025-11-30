@@ -1,12 +1,4 @@
-import {
-  Stack,
-  Text,
-  Button,
-  Textfield,
-  Textarea,
-  Divider,
-  Icon,
-} from "@inubekit/inubekit";
+import { Stack, Text, Button, Divider, Icon } from "@inubekit/inubekit";
 import { MdArrowBack } from "react-icons/md";
 import {
   StepContainer,
@@ -14,13 +6,19 @@ import {
   BackActionContainer,
   Step2Grid,
 } from "./Steps.styles";
+import { BoxAttribute } from "../Box-attribute.jsx";
 
 /* --- Subcomponentes reutilizables --- */
 const BackAction = () => (
   <BackActionContainer>
     <Button appearance="dark" spacing="compact" variant="none">
       <Stack direction="row" gap="8px" alignItems="center">
-        <Icon icon={<MdArrowBack />} appearance="dark" size="18px" spacing="narrow" />
+        <Icon
+          icon={<MdArrowBack />}
+          appearance="dark"
+          size="18px"
+          spacing="narrow"
+        />
         <Text type="label" size="medium" weight="bold">
           Regresar a este paso
         </Text>
@@ -58,23 +56,16 @@ const sectionsConfig = (formData, counts, formatCount) => [
       <>
         <Step2Grid>
           {["motivo", "submotivo"].map((field) => (
-            <Textfield
+            <BoxAttribute
               key={field}
-              label={field.charAt(0).toUpperCase() + field.slice(1)}
-              id={`${field}-readonly`}
-              size="compact"
-              value={formData?.[field] || ""}
-              disabled
-              fullwidth
+              title={field.charAt(0).toUpperCase() + field.slice(1)}
+              description={formData?.[field] || ""}
             />
           ))}
         </Step2Grid>
-        <Textarea
-          label="Detalles del motivo"
-          id="detallesMotivo-readonly"
-          value={formData?.detallesMotivo || ""}
-          disabled
-          fullwidth
+        <BoxAttribute
+          title="Detalles del motivo"
+          description={formData?.detallesMotivo || ""}
         />
       </>
     ),
@@ -83,38 +74,24 @@ const sectionsConfig = (formData, counts, formatCount) => [
     title: "Duración de la ausencia",
     content: (
       <>
-        <Textfield
-          label="Fecha de inicio"
-          id="fechaInicio-readonly"
-          size="compact"
-          value={formData?.fechaInicio || ""}
-          disabled
-          fullwidth
+        <BoxAttribute
+          title="Fecha de inicio"
+          description={formData?.fechaInicio || ""}
         />
         <Step2Grid>
           {["duracionDias", "duracionHoras"].map((f) => (
-            <Textfield
+            <BoxAttribute
               key={f}
-              label={
-                f === "duracionDias"
-                  ? "Duración (días)"
-                  : "Duración (horas)"
+              title={
+                f === "duracionDias" ? "Duración (días)" : "Duración (horas)"
               }
-              id={`${f}-readonly`}
-              size="compact"
-              value={formData?.[f] || ""}
-              disabled
-              fullwidth
+              description={formData?.[f] || ""}
             />
           ))}
         </Step2Grid>
-        <Textfield
-          label="Hora de inicio"
-          id="horaInicio-readonly"
-          size="compact"
-          value={formData?.horaInicio || ""}
-          disabled
-          fullwidth
+        <BoxAttribute
+          title="Hora de inicio"
+          description={formData?.horaInicio || ""}
         />
       </>
     ),
@@ -125,24 +102,16 @@ const sectionsConfig = (formData, counts, formatCount) => [
       <>
         <Step2Grid>
           {counts.slice(0, 2).map((c, i) => (
-            <Textfield
+            <BoxAttribute
               key={i}
-              label={c.label}
-              id={`doc-count-${i}`}
-              size="compact"
-              value={formatCount(c.count)}
-              disabled
-              fullwidth
+              title={c.label}
+              description={formatCount(c.count)}
             />
           ))}
         </Step2Grid>
-        <Textfield
-          label={counts[2].label}
-          id="doc-count-2"
-          size="compact"
-          value={formatCount(counts[2].count)}
-          disabled
-          fullwidth
+        <BoxAttribute
+          title={counts[2].label}
+          description={formatCount(counts[2].count)}
         />
       </>
     ),
@@ -152,9 +121,18 @@ const sectionsConfig = (formData, counts, formatCount) => [
 /* --- Componente principal --- */
 export const Step5Verification = ({ formData, documents }) => {
   const docFields = [
-    { id: "cita_medica_programada", label: "Cita médica programada - (Opcional)" },
-    { id: "incapacidad_medica_eps", label: "Incapacidad médica emitida por EPS - *Requerido*" },
-    { id: "orden_medica_tratamiento", label: "Orden médica de tratamiento - (Opcional)" },
+    {
+      id: "cita_medica_programada",
+      label: "Cita médica programada - (Opcional)",
+    },
+    {
+      id: "incapacidad_medica_eps",
+      label: "Incapacidad médica emitida por EPS - *Requerido*",
+    },
+    {
+      id: "orden_medica_tratamiento",
+      label: "Orden médica de tratamiento - (Opcional)",
+    },
   ];
 
   const counts = docFields.map((f) => ({

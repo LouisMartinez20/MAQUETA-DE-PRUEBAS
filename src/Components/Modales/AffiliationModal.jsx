@@ -12,6 +12,7 @@ import {
   StyledModalContainerMedium,
   StyledModalHeader,
 } from "./modal.styles.js";
+import{BoxAttribute}from"../Box-attribute.jsx";
 export const AffiliationModal = ({ isOpen, onClose, data }) => {
   if (!isOpen) return null;
   const {
@@ -44,34 +45,29 @@ export const AffiliationModal = ({ isOpen, onClose, data }) => {
             Consulta la información de afiliación del colaborador.
           </Text>
         </StyledModalHeader>
-        <Stack padding="24px 0" direction="column" gap="16px">
-          <Textfield
-            label="Fecha de afiliación"
-            id="fechaAfiliacion"
-            value={fechaAfiliacion}
-            disabled
-            fullwidth
-          />
-          <Textfield
-            label="Tiempo de afiliación"
-            id="tiempoAfiliacion"
-            value={tiempoAfiliacion}
-            disabled
-            fullwidth
-          />
-          <Textfield
-            label="Estado de afiliación"
-            id="estadoAfiliacion"
-            value={estadoAfiliacion}
-            disabled
-            fullwidth
-          />
-          <Stack direction="row" justifyContent="flex-end" margin="8px 0 0 0">
-            <Button appearance="primary" onClick={onClose}>
-              Cerrar
-            </Button>
-          </Stack>
-        </Stack>
+<Stack padding="24px 0" direction="column" gap="16px">
+  <BoxAttribute 
+    title="Fecha de afiliación"
+    description={fechaAfiliacion}
+  />
+
+  <BoxAttribute 
+    title="Tiempo de afiliación"
+    description={tiempoAfiliacion}
+  />
+
+  <BoxAttribute 
+    title="Estado de afiliación"
+    description={estadoAfiliacion}
+  />
+
+  <Stack direction="row" justifyContent="flex-end" margin="8px 0 0 0">
+    <Button appearance="primary" onClick={onClose}>
+      Cerrar
+    </Button>
+  </Stack>
+</Stack>
+
       </StyledModalContainerMedium>
     </Blanket>,
     modalRoot

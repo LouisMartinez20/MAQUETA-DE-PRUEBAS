@@ -5,12 +5,12 @@ import {
   Text,
   Icon,
   Button,
-  Textfield,
   Textarea,
-  Box
 } from "@inubekit/inubekit";
 import { MdClose } from "react-icons/md";
 import { StyledModalContainer, StyledModalHeader } from "./modal.styles.js";
+import { BoxAttribute } from "../Box-attribute.jsx";
+
 export const AbsentModal = ({ isOpen, onClose, data }) => {
   if (!isOpen) return null;
   const {
@@ -47,61 +47,32 @@ export const AbsentModal = ({ isOpen, onClose, data }) => {
         </StyledModalHeader>
         <Stack padding="24px" direction="column" gap="20px">
           <Stack direction="row" gap="16px">
-            <Box
-              padding="8px"
-              margin="4px 0"
-              borderRadius="8px"
-              width="100%"
-              type="text-area"
-            >
-              <Text
-                size="medium"
-                weight="bold"
-                margin="0 0 4px 0"
-              >
-                Motivo
-              </Text>
-
-              <Text
-                size="small"
-                disabled
-              >
-                {motivo}
-              </Text>
-            </Box>
-            <Textfield
-              label="Submotivo"
-              id="submotivo-ausencia"
-              value={submotivo}
-              size="compact"
-              disabled
-              fullwidth
+            <BoxAttribute
+              title="Motivo"
+              description={motivo}
+              style={{ width: "50%" }}
+            />
+            <BoxAttribute
+              title="Submotivo"
+              description={submotivo}
+              style={{ width: "50%" }}
             />
           </Stack>
           <Stack direction="row" gap="16px">
-            <Textfield
-              label="Fecha en que se produjo"
-              id="fecha-ausencia"
-              value={fecha}
-              size="compact"
-              disabled
-              fullwidth
+            <BoxAttribute
+              title="Fecha en que se produjo"
+              description={fecha}
+              style={{ width: "100%" }}
             />
-            <Textfield
-              label="Duración"
-              id="duracion-ausencia"
-              value={duracion}
-              size="compact"
-              disabled
-              fullwidth
+            <BoxAttribute
+              title="Duración"
+              description={duracion}
+              style={{ width: "100%" }}
             />
           </Stack>
-          <Textarea
-            label="Detalles del motivo"
-            id="detalles-motivo-ausencia"
-            value={detallesMotivo}
-            disabled
-            fullwidth
+          <BoxAttribute 
+            title="Detalles del motivo"
+            description={detallesMotivo}
           />
           <Stack direction="row" justifyContent="flex-end">
             <Button appearance="primary" onClick={onClose}>

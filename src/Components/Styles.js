@@ -11,8 +11,6 @@ export const SidebarContainer = styled.div`
   background-color: #ffffff;
   border-right: 1px solid #e0e0e0;
 
-  
-
   @media (max-width: 1024px) {
     display: none;
   }
@@ -171,7 +169,7 @@ export const StyledTableWrapper = styled.div`
     }
 
     thead th:nth-child(4) {
-      width: 70px ;
+      width: 70px;
       text-align: center;
     }
 
@@ -244,4 +242,12 @@ export const MenuButton = styled.button`
   &:hover {
     opacity: 0.7;
   }
+`;
+export const BoxContent = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  background-color: #f5f5f5;
+  height: auto;
+  width: 100%;
 `;

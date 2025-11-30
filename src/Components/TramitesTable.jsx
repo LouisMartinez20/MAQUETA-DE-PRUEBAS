@@ -196,7 +196,7 @@ export const TramitesTable = () => {
         </Tbody>
         <Tfoot>
           <Tr>
-            <Td colSpan={5} align="right">
+            <Td colSpan={5} align="right" type="custom">
               <Stack justifyContent="flex-end" padding="8px 16px">
                 <Pagination
                   firstEntryInPage={0}
