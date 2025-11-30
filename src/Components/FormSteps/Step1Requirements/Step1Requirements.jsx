@@ -1,6 +1,5 @@
 import { Text, Icon, Stack } from "@inubekit/inubekit";
 import { MdOutlineCheckCircleOutline } from "react-icons/md";
-
 export const Step1Requirements = () => {
     return (
         <Stack
@@ -8,8 +7,7 @@ export const Step1Requirements = () => {
             alignItems="center"
             justifyContent="center"
             gap="16px"
-            padding="24px"
-        >
+            padding="24px">
             <Icon
                 icon={<MdOutlineCheckCircleOutline />}
                 appearance="success"

@@ -5,30 +5,24 @@ import {
   SectionBox,
   BackActionContainer,
   Step2Grid,
-} from "./Steps.styles";
-import { BoxAttribute } from "../Box-attribute.jsx";
-
+} from "../Steps.styles.js";
+import { BoxAttribute } from "../../Box-attribute.jsx";
 /* --- Subcomponentes reutilizables --- */
 const BackAction = () => (
   <BackActionContainer>
-    <Stack direction="row"  alignItems="center">
+    <Stack direction="row" alignItems="center">
       <Icon
         icon={<MdArrowBack />}
         appearance="dark"
         size="18px"
         spacing="narrow"
       />
-
-      <Button appearance="dark" spacing="compact" variant="none"  >
-        
-          Regresar a este paso
-       
+      <Button appearance="dark" spacing="compact" variant="none">
+        Regresar a este paso
       </Button>
     </Stack>
   </BackActionContainer>
 );
-
-
 const SectionCard = ({ title, children }) => (
   <SectionBox>
     <Stack direction="column" gap="16px">
@@ -41,7 +35,6 @@ const SectionCard = ({ title, children }) => (
     </Stack>
   </SectionBox>
 );
-
 /* --- Datos declarativos --- */
 const sectionsConfig = (formData, counts, formatCount) => [
   {
@@ -119,7 +112,6 @@ const sectionsConfig = (formData, counts, formatCount) => [
     ),
   },
 ];
-
 /* --- Componente principal --- */
 export const Step5Verification = ({ formData, documents }) => {
   const docFields = [
@@ -136,20 +128,16 @@ export const Step5Verification = ({ formData, documents }) => {
       label: "Orden médica de tratamiento - (Opcional)",
     },
   ];
-
   const counts = docFields.map((f) => ({
     label: f.label,
     count: documents?.[f.id]?.files?.length ?? 0,
   }));
-
   const formatCount = (count) => {
     if (!count) return "No adjunto";
     if (count === 1) return "1 archivo adjunto";
     return `${count} archivos adjuntos`;
   };
-
   const sections = sectionsConfig(formData, counts, formatCount);
-
   return (
     <StepContainer>
       <Stack direction="column" gap="24px">

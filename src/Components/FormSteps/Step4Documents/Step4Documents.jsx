@@ -10,8 +10,7 @@ import {
   Icon,
 } from "@inubekit/inubekit";
 import { MdAttachFile } from "react-icons/md";
-import { Step4DocumentsModal } from "../Modales/Step4DocumentsModal";
-
+import { Step4DocumentsModal } from "../../Modales/Step4DocumentsModal";
 export const DOCUMENTS_DATA = [
   {
     id: "cita_medica_programada",
@@ -28,16 +27,13 @@ export const DOCUMENTS_DATA = [
       "Orden médica de tratamiento, examen especializado o recuperación post-operatoria - (Opcional)",
   },
 ];
-
 export const Step4Documents = ({ documents, setDocuments }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedDocument, setSelectedDocument] = useState(null);
-
   const handleAttachClick = useCallback((document) => {
     setSelectedDocument(document);
     setIsModalOpen(true);
   }, []);
-
   const handleCloseModal = (uploadedFiles) => {
     if (uploadedFiles && uploadedFiles.length > 0) {
       setDocuments((prev) => ({
@@ -51,7 +47,6 @@ export const Step4Documents = ({ documents, setDocuments }) => {
     setIsModalOpen(false);
     setSelectedDocument(null);
   };
-
   return (
     <>
       <Table
@@ -86,14 +81,13 @@ export const Step4Documents = ({ documents, setDocuments }) => {
             </Th>
           </Tr>
         </Thead>
-
         <Tbody>
           {DOCUMENTS_DATA.map((item) => (
             <Tr key={item.id}>
               <Td align="left" appearance="light" type="text">
                 {item.documento}
               </Td>
-              <Td align="center" appearance="light" type="icon" >
+              <Td align="center" appearance="light" type="icon">
                 <Icon
                   icon={<MdAttachFile />}
                   appearance="primary"
@@ -107,7 +101,6 @@ export const Step4Documents = ({ documents, setDocuments }) => {
           ))}
         </Tbody>
       </Table>
-
       {isModalOpen && (
         <Step4DocumentsModal
           isOpen={isModalOpen}

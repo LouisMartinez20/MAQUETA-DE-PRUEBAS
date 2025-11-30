@@ -1,16 +1,18 @@
 import { Grid, Select, Textarea } from "@inubekit/inubekit";
-import { StepContainer, Step2Grid } from "./Steps.styles";
-
+import { StepContainer, Step2Grid } from "../Steps.styles";
 const motivoOptions = [
   { id: "1", label: "Vacaciones", value: "vacaciones" },
   { id: "2", label: "Incapacidad médica", value: "incapacidad" },
   { id: "3", label: "Permiso personal", value: "permiso_personal" },
   { id: "4", label: "Permiso por estudio", value: "permiso_estudio" },
-  { id: "5", label: "Licencia de maternidad/paternidad", value: "licencia_maternidad" },
+  {
+    id: "5",
+    label: "Licencia de maternidad/paternidad",
+    value: "licencia_maternidad",
+  },
   { id: "6", label: "Calamidad doméstica", value: "calamidad" },
   { id: "7", label: "Otro", value: "otro" },
 ];
-
 const submotivoOptions = [
   { id: "1", label: "Enfermedad general", value: "enfermedad_general" },
   { id: "2", label: "Accidente laboral", value: "accidente_laboral" },
@@ -19,12 +21,10 @@ const submotivoOptions = [
   { id: "5", label: "Trámite personal", value: "tramite_personal" },
   { id: "6", label: "Otro", value: "otro" },
 ];
-
 export const Step2Reason = ({ formData, onChange }) => {
   const handleSelectChange = (name, value) => {
     onChange({ target: { name, value } });
   };
-
   return (
     <StepContainer>
       <Step2Grid>
@@ -40,7 +40,6 @@ export const Step2Reason = ({ formData, onChange }) => {
           clearable={false}
           fullwidth
         />
-
         <Select
           label="Submotivo"
           placeholder="Seleccione de la lista"
@@ -54,7 +53,6 @@ export const Step2Reason = ({ formData, onChange }) => {
           fullwidth
         />
       </Step2Grid>
-
       <Grid templateColumns="1fr" gap="16px" margin="16px 0px 0px 0px">
         <Textarea
           label="Detalles del motivo"
@@ -63,7 +61,7 @@ export const Step2Reason = ({ formData, onChange }) => {
           id="detallesMotivo"
           value={formData?.detallesMotivo || ""}
           onChange={onChange}
-          maxLength={200}
+          maxLength={500}
           fullwidth
         />
       </Grid>

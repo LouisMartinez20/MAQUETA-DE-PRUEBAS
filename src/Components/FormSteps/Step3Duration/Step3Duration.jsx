@@ -1,19 +1,17 @@
 import { Grid, Textfield, Select } from "@inubekit/inubekit";
-import { StepContainer, Step2Grid } from "./Steps.styles";
-
+import { StepContainer, Step2Grid } from "../Steps.styles";
 const horaInicioOptions = Array.from({ length: 24 }, (_, i) => {
     const hour = i.toString().padStart(2, "0");
-    return { 
-        id: `${i + 1}`, 
-        label: `${hour}:00`, 
-        value: `${hour}:00` };
+    return {
+        id: `${i + 1}`,
+        label: `${hour}:00`,
+        value: `${hour}:00`,
+    };
 });
-
 export const Step3Duration = ({ formData, onChange }) => {
     const handleSelectChange = (name, value) => {
         onChange({ target: { name, value } });
     };
-
     return (
         <StepContainer>
             <Grid templateColumns="1fr" gap="16px" margin="0px 0px 16px 0px">
@@ -29,7 +27,6 @@ export const Step3Duration = ({ formData, onChange }) => {
                     fullwidth
                 />
             </Grid>
-
             <Step2Grid style={{ marginBottom: "16px" }}>
                 <Textfield
                     label="Duración en días"
@@ -54,7 +51,6 @@ export const Step3Duration = ({ formData, onChange }) => {
                     fullwidth
                 />
             </Step2Grid>
-
             <Grid templateColumns="1fr" gap="16px">
                 <Select
                     label="Hora de inicio aproximada"

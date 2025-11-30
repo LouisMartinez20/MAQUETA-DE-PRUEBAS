@@ -15,7 +15,7 @@ import {
 import { MdAttachFile, MdClose } from "react-icons/md";
 import { StyledModalContainer, StyledModalHeader } from "./modal.styles.js";
 import { Step4DocumentsModal } from "./Step4DocumentsModal";
-import { DOCUMENTS_DATA } from "../FormSteps/Step4Documents";
+import { DOCUMENTS_DATA } from "../FormSteps/Step4Documents/Step4Documents.jsx";
 export const FilesModal = ({ isOpen, onClose, data }) => {
   const [isDocModalOpen, setIsDocModalOpen] = useState(false);
   const [selectedDocument, setSelectedDocument] = useState(null);
@@ -121,14 +121,14 @@ export const FilesModal = ({ isOpen, onClose, data }) => {
           </Stack>
         </Stack>
       </StyledModalContainer>
-              {isDocModalOpen && (
-          <Step4DocumentsModal
-            isOpen={isDocModalOpen}
-            onClose={handleCloseDocModal}
-            document={selectedDocument}
-            existingFiles={documents[selectedDocument?.id]?.files || []}
-          />
-        )}
+      {isDocModalOpen && (
+        <Step4DocumentsModal
+          isOpen={isDocModalOpen}
+          onClose={handleCloseDocModal}
+          document={selectedDocument}
+          existingFiles={documents[selectedDocument?.id]?.files || []}
+        />
+      )}
     </Blanket>
   );
 };

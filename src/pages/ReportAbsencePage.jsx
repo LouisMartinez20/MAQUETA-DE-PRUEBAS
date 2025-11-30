@@ -2,11 +2,11 @@ import { useState } from "react";
 import { HGroup } from "../Components/Hgroup";
 import { Banner } from "../Components/Banner";
 import { AssistedComponent } from "../Components/Assisted";
-import { Step1Requirements } from "../Components/FormSteps/Step1Requirements";
-import { Step2Reason } from "../Components/FormSteps/Step2Reason";
-import { Step3Duration } from "../Components/FormSteps/Step3Duration";
-import { Step4Documents } from "../Components/FormSteps/Step4Documents";
-import { Step5Verification } from "../Components/FormSteps/Step5Verification";
+import { Step1Requirements } from "../Components/FormSteps/Step1Requirements/Step1Requirements";
+import { Step2Reason } from "../Components/FormSteps/Step2Reason/Step2Reason";
+import { Step3Duration } from "../Components/FormSteps/Step3Duration/Step3Duration";
+import { Step4Documents } from "../Components/FormSteps/Step4Documents/Step4Documents";
+import { Step5Verification } from "../Components/FormSteps/Step5Verification/Step5Verification";
 import { Box, Button, Stack, Icon, Text } from "@inubekit/inubekit";
 import { MdOutlineRule } from "react-icons/md";
 import { useNavigate } from "react-router-dom";
@@ -15,7 +15,8 @@ import { Step5SuccessModal } from "../Components/Modales/Step5SuccessModal";
 export const ReportAbsencePage = () => {
   const navigate = useNavigate();
   const [currentStep, setCurrentStep] = useState(1); // controla el paso actual del formulario desde los botones
-  const [formData, setFormData] = useState({ //controla los datos del formulario
+  const [formData, setFormData] = useState({
+    //controla los datos del formulario
     motivo: "",
     submotivo: "",
     detallesMotivo: "",
@@ -43,7 +44,7 @@ export const ReportAbsencePage = () => {
       [name]: value,
     }));
   };
-  
+
   const isStepValid = (step) => {
     switch (step) {
       case 1:
@@ -130,26 +131,31 @@ export const ReportAbsencePage = () => {
           showBackButton={true}
           onBack={handleCancel}
         />
-        <Button variant="outlined" appearance="gray" spacing="compact" iconAfter={<MdOutlineRule />}>
+        <Button
+          variant="outlined"
+          appearance="gray"
+          spacing="compact"
+          iconAfter={<MdOutlineRule />}
+        >
           Requisitos
         </Button>
       </Stack>
-          <AssistedComponent
-            onSubmitClick={handleSubmit}
-            validateStep={isStepValid}
-            onStepChange={setCurrentStep}
-          />
-          <Stack direction="column" justifyContent="space-between">
-            <Box
-              borderRadius="8px"
-              padding="24px"
-              style={{
-                maxHeight: currentStep === 5 ? "calc(100vh - 420px)" : "unset",
-                overflowY: currentStep === 5 ? "auto" : "visible",
-              }}
-            >
-              {renderCurrentStep(currentStep)}
-            </Box>
+      <AssistedComponent
+        onSubmitClick={handleSubmit}
+        validateStep={isStepValid}
+        onStepChange={setCurrentStep}
+      />
+      <Stack direction="column" justifyContent="space-between">
+        <Box
+          borderRadius="8px"
+          padding="24px"
+          style={{
+            maxHeight: currentStep === 5 ? "calc(100vh - 420px)" : "unset",
+            overflowY: currentStep === 5 ? "auto" : "visible",
+          }}
+        >
+          {renderCurrentStep(currentStep)}
+        </Box>
         <Stack
           direction="row"
           justifyContent="flex-end"
