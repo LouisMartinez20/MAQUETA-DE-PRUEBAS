@@ -8,8 +8,8 @@ import {
   Textarea,
 } from "@inubekit/inubekit";
 import { MdClose } from "react-icons/md";
-import { StyledModalContainer, StyledModalHeader } from "./modal.styles.js";
-import { BoxAttribute } from "../Box-attribute.jsx";
+import { StyledModalContainer, StyledModalHeader } from "../modal.styles.js";
+import { BoxAttribute } from "../../ui/Box-attribute.jsx";
 
 export const AbsentModal = ({ isOpen, onClose, data }) => {
   if (!isOpen) return null;
@@ -70,7 +70,7 @@ export const AbsentModal = ({ isOpen, onClose, data }) => {
               style={{ width: "100%" }}
             />
           </Stack>
-          <BoxAttribute 
+          <BoxAttribute
             title="Detalles del motivo"
             description={detallesMotivo}
           />

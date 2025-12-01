@@ -2,7 +2,7 @@ import { Text, Button } from "@inubekit/inubekit";
 import { MdOutlineAdd } from "react-icons/md";
 import { Container, ButtonWrapper } from "./Styles";
 import { useNavigate } from "react-router-dom";
-import { ROUTES } from "../routes";
+import { ROUTES } from "../../routes";
 
 export const ContainerButton = () => {
   const navigate = useNavigate();
@@ -23,7 +23,8 @@ export const ContainerButton = () => {
           onClick={handleClick}
           spacing="wide"
           type="button"
-          variant="filled">
+          variant="filled"
+        >
           Reportar ausencia
         </Button>
       </ButtonWrapper>

@@ -18,8 +18,8 @@ import {
 } from "react-icons/md";
 import { StyledTableWrapper } from "./Styles";
 import { useEffect, useState } from "react";
-import { DetailsModal } from "./Modales/DetailsModal";
-import { FilesModal } from "./Modales/FilesModal";
+import { DetailsModal } from "../Modales/DetailsModal/DetailsModal";
+import { FilesModal } from "../Modales/FilesModal/FilesModal";
 
 export const TableComponent = () => {
   const [isMobile, setIsMobile] = useState(() => {
@@ -138,7 +138,7 @@ export const TableComponent = () => {
                 Fecha en que se produjo
               </Text>
             </Th>
-            <Th align="center" >
+            <Th align="center">
               <Text
                 as="span"
                 type="title"

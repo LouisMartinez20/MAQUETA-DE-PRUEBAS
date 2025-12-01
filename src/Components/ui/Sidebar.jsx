@@ -3,7 +3,7 @@ import { MdLogout } from "react-icons/md";
 import { useLocation, useNavigate } from "react-router-dom";
 import { SidebarContainer } from "./Styles";
 import inubeLogo from "/Logo_crediboard.svg";
-import { SIDEBAR_LINKS } from "../navigation/navigationConfig";
+import { SIDEBAR_LINKS } from "../../navigation/navigationConfig";
 export const Sidebar = () => {
   const location = useLocation();
   const navigate = useNavigate();

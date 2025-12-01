@@ -6,7 +6,7 @@ import {
   BackActionContainer,
   Step2Grid,
 } from "../Steps.styles.js";
-import { BoxAttribute } from "../../Box-attribute.jsx";
+import { BoxAttribute } from "../../ui/Box-attribute.jsx";
 /* --- Subcomponentes reutilizables --- */
 const BackAction = () => (
   <BackActionContainer>

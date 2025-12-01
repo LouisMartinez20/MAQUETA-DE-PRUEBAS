@@ -1,17 +1,17 @@
 import { useState } from "react";
-import { HGroup } from "../Components/Hgroup";
-import { Banner } from "../Components/Banner";
-import { AssistedComponent } from "../Components/Assisted";
-import { Step1Requirements } from "../Components/FormSteps/Step1Requirements/Step1Requirements";
-import { Step2Reason } from "../Components/FormSteps/Step2Reason/Step2Reason";
-import { Step3Duration } from "../Components/FormSteps/Step3Duration/Step3Duration";
-import { Step4Documents } from "../Components/FormSteps/Step4Documents/Step4Documents";
-import { Step5Verification } from "../Components/FormSteps/Step5Verification/Step5Verification";
+import { HGroup } from "../../Components/ui/Hgroup";
+import { Banner } from "../../Components/ui/Banner";
+import { AssistedComponent } from "../../Components/ui/Assisted";
+import { Step1Requirements } from "../../Components/FormSteps/Step1Requirements/Step1Requirements";
+import { Step2Reason } from "../../Components/FormSteps/Step2Reason/Step2Reason";
+import { Step3Duration } from "../../Components/FormSteps/Step3Duration/Step3Duration";
+import { Step4Documents } from "../../Components/FormSteps/Step4Documents/Step4Documents";
+import { Step5Verification } from "../../Components/FormSteps/Step5Verification/Step5Verification";
 import { Box, Button, Stack, Icon, Text } from "@inubekit/inubekit";
 import { MdOutlineRule } from "react-icons/md";
 import { useNavigate } from "react-router-dom";
-import { ROUTES } from "../routes";
-import { Step5SuccessModal } from "../Components/Modales/Step5SuccessModal";
+import { ROUTES } from "../../routes";
+import { Step5SuccessModal } from "../../Components/Modales/Step5SuccessModal/Step5SuccessModal";
 export const ReportAbsencePage = () => {
   const navigate = useNavigate();
   const [currentStep, setCurrentStep] = useState(1); // controla el paso actual del formulario desde los botones

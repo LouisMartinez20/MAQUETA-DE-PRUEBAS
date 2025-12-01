@@ -13,9 +13,9 @@ import {
   Button,
 } from "@inubekit/inubekit";
 import { MdAttachFile, MdClose } from "react-icons/md";
-import { StyledModalContainer, StyledModalHeader } from "./modal.styles.js";
-import { Step4DocumentsModal } from "./Step4DocumentsModal";
-import { DOCUMENTS_DATA } from "../FormSteps/Step4Documents/Step4Documents.jsx";
+import { StyledModalContainer, StyledModalHeader } from "../modal.styles.js";
+import { Step4DocumentsModal } from "../Step4DocumentsModal/Step4DocumentsModal.jsx";
+import { DOCUMENTS_DATA } from "../../FormSteps/Step4Documents/Step4Documents.jsx";
 export const FilesModal = ({ isOpen, onClose, data }) => {
   const [isDocModalOpen, setIsDocModalOpen] = useState(false);
   const [selectedDocument, setSelectedDocument] = useState(null);

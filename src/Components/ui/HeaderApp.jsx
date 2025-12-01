@@ -1,7 +1,7 @@
 import { Header } from "@inubekit/inubekit";
 import { MdOutlinePerson, MdOutlineLogout } from "react-icons/md";
 import presenteLogo from "/presente_logo.png";
-import { HEADER_SECTIONS } from "../navigation/navigationConfig"; //configuracion centralizada de rutas
+import { HEADER_SECTIONS } from "../../navigation/navigationConfig"; //configuracion centralizada de rutas
 
 export const HeaderApp = () => {
   return (

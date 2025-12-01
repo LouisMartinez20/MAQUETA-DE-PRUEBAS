@@ -13,7 +13,8 @@ export const HGroup = ({
     { id: "ausencias", label: "Ausencias", path: "/ausencias", isActive: true },
   ];
   const crumbs = breadcrumbs ?? defaultCrumbs;
-  const handleBack = () => { //maneja las alertas de los botones regresar y más opciones (deberia ser un modal)
+  const handleBack = () => {
+    //maneja las alertas de los botones regresar y más opciones (deberia ser un modal)
     if (onBack) {
       onBack();
     } else {
@@ -27,33 +28,31 @@ export const HGroup = ({
     <HGroupContainer>
       <Breadcrumbs crumbs={crumbs} />
       <TitleRow>
-          <BackIcon onClick={handleBack}>
-            <Icon
-              icon={<MdArrowBack />}
-              appearance="dark"
-              size="20px"
-              spacing="narrow"/>
-          </BackIcon>
-          <Text
+        <BackIcon onClick={handleBack}>
+          <Icon
+            icon={<MdArrowBack />}
             appearance="dark"
-            size="large"
-            weight="normal"
-            type="title">
-            {title} 
-          </Text>
+            size="20px"
+            spacing="narrow"
+          />
+        </BackIcon>
+        <Text appearance="dark" size="large" weight="normal" type="title">
+          {title}
+        </Text>
         {showMoreOptions && (
-          <MobileMoreIcon
-            onClick={handleMoreOptions}>
-            <Icon icon={<MdMoreVert />} 
-            appearance="dark" 
-            size="24px" 
-            spacing="narrow" />
+          <MobileMoreIcon onClick={handleMoreOptions}>
+            <Icon
+              icon={<MdMoreVert />}
+              appearance="dark"
+              size="24px"
+              spacing="narrow"
+            />
           </MobileMoreIcon>
         )}
       </TitleRow>
-        <Text type="body" size="medium" appearance="gray" weight="regular">
-          {description}
-        </Text>
+      <Text type="body" size="medium" appearance="gray" weight="regular">
+        {description}
+      </Text>
     </HGroupContainer>
   );
 };

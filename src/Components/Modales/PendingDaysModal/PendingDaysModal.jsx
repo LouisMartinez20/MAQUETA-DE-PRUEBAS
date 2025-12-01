@@ -15,7 +15,7 @@ import {
   Td,
 } from "@inubekit/inubekit";
 import { MdClose } from "react-icons/md";
-import { StyledModalContainer, StyledModalHeader } from "./modal.styles.js";
+import { StyledModalContainer, StyledModalHeader } from "../modal.styles.js";
 export const PendingDaysModal = ({
   isOpen,
   onClose,

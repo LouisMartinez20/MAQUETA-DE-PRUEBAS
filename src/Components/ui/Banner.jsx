@@ -18,10 +18,10 @@ import {
   Content,
   WidgetContent,
 } from "./Styles";
-import { AffiliationModal } from "./Modales/AffiliationModal";
-import { AlertsModal } from "./Modales/AlertsModal";
-import { AbsentModal } from "./Modales/AbsentModal";
-import { PendingDaysModal } from "./Modales/PendingDaysModal";
+import { AffiliationModal } from "../Modales/AffiliationModal/AffiliationModal";
+import { AlertsModal } from "../Modales/AlertsModal/AlertsModal";
+import { AbsentModal } from "../Modales/AbsentModal/AbsentModal";
+import { PendingDaysModal } from "../Modales/PendingDaysModal/PendingDaysModal";
 
 const WidgetItem = ({
   icon,
@@ -84,9 +84,7 @@ export const Banner = () => {
   const [isPendingOpen, setIsPendingOpen] = useState(false);
   const [pendingData] = useState({
     pendingTotal: 22,
-    pendingRows: [
-      { contrato: "Empresa XYZ S.A.", dias: 22 },
-    ],
+    pendingRows: [{ contrato: "Empresa XYZ S.A.", dias: 22 }],
     usedTotal: 6,
     usedRows: [
       { fecha: "2025-05-02", modalidad: "Vacaciones", dias: 2 },

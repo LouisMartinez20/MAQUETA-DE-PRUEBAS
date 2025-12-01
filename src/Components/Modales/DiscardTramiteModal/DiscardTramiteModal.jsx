@@ -1,6 +1,6 @@
 import { Blanket, Stack, Text, Icon, Button } from "@inubekit/inubekit";
 import { MdClose } from "react-icons/md";
-import { StyledModalContainerSmall, StyledModalHeader } from "./modal.styles";
+import { StyledModalContainerSmall, StyledModalHeader } from "../modal.styles";
 export const DiscardTramiteModal = ({
     isOpen,
     onClose,

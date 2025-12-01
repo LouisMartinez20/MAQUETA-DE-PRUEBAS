@@ -10,7 +10,7 @@ import {
   Icon,
 } from "@inubekit/inubekit";
 import { MdAttachFile } from "react-icons/md";
-import { Step4DocumentsModal } from "../../Modales/Step4DocumentsModal";
+import { Step4DocumentsModal } from "../../Modales/Step4DocumentsModal/Step4DocumentsModal";
 export const DOCUMENTS_DATA = [
   {
     id: "cita_medica_programada",

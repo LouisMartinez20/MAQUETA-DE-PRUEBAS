@@ -5,7 +5,7 @@ import {
   StyledModalContainerMedium,
   StyledModalHeader,
   AlertRow,
-} from "./modal.styles.js";
+} from "../modal.styles.js";
 export const AlertsModal = ({ isOpen, onClose, alerts = [] }) => {
   if (!isOpen) return null;
   const modalRoot = document.getElementById("modal-root");

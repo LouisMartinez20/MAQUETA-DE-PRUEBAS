@@ -18,9 +18,9 @@ import {
 } from "react-icons/md";
 import { StyledTableWrapper } from "./Styles";
 import { useEffect, useState } from "react";
-import { DetailsModal } from "./Modales/DetailsModal";
-import { FilesModal } from "./Modales/FilesModal";
-import { DiscardTramiteModal } from "./Modales/DiscardTramiteModal";
+import { DetailsModal } from "../Modales/DetailsModal/DetailsModal";
+import { FilesModal } from "../Modales/FilesModal/FilesModal";
+import { DiscardTramiteModal } from "../Modales/DiscardTramiteModal/DiscardTramiteModal";
 export const TramitesTable = () => {
   const [isMobile, setIsMobile] = useState(() => {
     if (typeof window === "undefined") return false;

@@ -1,5 +1,5 @@
-import { Sidebar } from "./Components/Sidebar";
-import { HeaderApp } from "./Components/HeaderApp";
+import { Sidebar } from "./Components/ui/Sidebar";
+import { HeaderApp } from "./Components/ui/HeaderApp";
 import { Routes, Route } from "react-router-dom";
 import { routes } from "./routes/routes";
 import {
@@ -14,7 +14,7 @@ export const App = () => {
   return (
     <Content>
       <AppContainer>
-          <HeaderApp />
+        <HeaderApp />
         <ContentArea>
           <Sidebar />
           <BodyArea>
@@ -24,7 +24,8 @@ export const App = () => {
                   <Route
                     key={route.path}
                     path={route.path}
-                    element={route.element}/>
+                    element={route.element}
+                  />
                 ))}
               </Routes>
             </InnerContent>
