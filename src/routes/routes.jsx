@@ -1,7 +1,7 @@
 import { Navigate } from "react-router-dom";
-import { AbsencesListPage } from "../pages/AbsencesListPage";
-import { ReportAbsencePage } from "../pages/ReportAbsencePage";
-import { PlaceholderPage } from "../pages/PlaceholderPage";
+import { AbsencesListPage } from "../pages/AbsencesListPage/AbsencesListPage";
+import { ReportAbsencePage } from "../pages/ReportAbsencePage/ReportAbsencePage";
+import { PlaceholderPage } from "../pages/PlaceholderPage/PlaceholderPage";
 import { ROUTES } from "./index";
 
 /**
